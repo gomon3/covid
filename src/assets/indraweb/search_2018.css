@@ -1,0 +1,33 @@
+﻿.ms-srch-item-link {
+    color:#333;
+}
+
+.ms-srch-item-summary, .ms-srch-communityItem-summary
+{
+    color:#666 !important;
+    font-size: 0.75rem;
+}
+
+.ms-srch-item-summary .ms-srch-item-highlightedText {
+    color:#666 !important;
+    display:inline !important;
+}
+
+.ms-srch-item-path {
+    color:#5f98c9;
+    font-size: 0.75rem;
+}
+
+.ms-commandLink, .ms-commandLink:hover, .ms-commandLink:visited {
+    float:none !important;
+}
+
+/*
+Fix Query suggestions position
+*/
+.ms-qSuggest-container{
+    margin: -1px 0px 0px -15px !important;
+    top:40px;
+    left:15px;
+    right:37px;
+}

@@ -1,0 +1,739 @@
+﻿var useCache = true;
+var LanguageName;
+var masMenosSlide = 1;
+var limiteElementosNoticias = 11;
+
+jQuery(document).ready(function () {
+    var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value;
+    if (inDesignMode != 1) {
+
+        if (jQuery("#contenidoNoticias").length > 0) {
+            getPromotedNews(limiteElementosNoticias);
+        }
+
+        jQuery("#btnVerMasSomosIndra").click(function () {
+            showMoreNews();
+        });
+    }
+});
+
+function getPromotedNews(limit) {
+    var MAX_ELEM_PRIMERAFILA = 3;
+    var isStatic = 0;
+    var fileRefs = new Array();
+    var serviceUrlStatic = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/indraweb2018/PromotedNews.ashx?static=1";
+    var htmlStatic = "";
+
+    jQuery.ajax({
+        url: serviceUrlStatic,
+        dataType: "json",
+        cache: useCache
+    }).done(function (data) {
+        if (data != null && data != "") {
+            MAX_ELEM_PRIMERAFILA = 2;
+            isStatic = 1;
+
+            var TituloNoticia = data.entity[0].Title;
+            var UrlImagen = data.entity[0].PublishingRollupImage;
+            var strSeccion = data.entity[0].HighlightText;
+            var fechaMod = data.entity[0].ModifiedDateFormat;
+            var linkNoticia = data.entity[0].FileRef;
+            var idNoticia = "noticia_static";
+            var resumenNoticia = data.entity[0].Comments;
+            var noticiaPermanente = data.entity[0].NoticiaPermanente;
+
+            htmlStatic = "<div class=\"col-md-3\">" +
+				"<article class=\"home-news__article media home-news__article--cftc\" id='" + idNoticia + "'>" +
+				"<a class=\"home-news__section\" href='" + getCommunityUrl(linkNoticia) + "'>" + strSeccion + "</a>" +
+				"<p class=\"home-news__date\">" + fechaMod + "</p>" +
+				"<div class=\"media-body\">" +
+				"<a href='" + linkNoticia + "' class=\"home-news__link-image--cftc\">" +
+				"<img src='" + UrlImagen + "?renditionID=20' alt=\"\" class=\"img-fluid home-news__image\">" +
+				"</a>" +
+				"<h3 class=\"home-news__title\"><a href='" + linkNoticia + "'>" + TituloNoticia + "</a></h3>" +
+				"<p class=\"home-news__text\">" + resumenNoticia + "</p>" +
+				"</div>" +
+				"</article>" +
+				"</div>";
+        }
+
+        if (limit == null) {
+            serviceUrl = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/indraweb2018/PromotedNews.ashx";
+        }
+        else {
+            serviceUrl = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/indraweb2018/PromotedNews.ashx?limit=" + (limit - isStatic);
+        }
+        jQuery.ajax({
+            url: serviceUrl,
+            dataType: "json",
+            cache: useCache
+        }).done(function (data) {
+            var i = 1;
+            var divContenedor = jQuery("#Fila1");
+            var contadorFila = 0;
+            var contadorElemFila = 0;
+            var contadorElementos = 0;
+            var idNuevaFila = "";
+
+            var MAX_ELEM_RESTOFILAS = 4;
+
+            if (data != null) {
+
+                paginationIndex = data.entity.length;
+                var numFilasTotales = Math.floor(((paginationIndex / 4) + 1));
+
+                for (entity in data.entity) {
+                    var TituloNoticia = data.entity[entity].Title;
+                    var UrlImagen = data.entity[entity].PublishingRollupImage;
+                    var strSeccion = data.entity[entity].HighlightText;
+                    var fechaMod = data.entity[entity].ModifiedDateFormat;
+                    var linkNoticia = data.entity[entity].FileRef;
+                    var idNoticia = "noticia_" + contadorFila + "_" + contadorElemFila;
+                    var resumenNoticia = data.entity[entity].Comments;
+                    var noticiaPermanente = data.entity[entity].NoticiaPermanente;
+                    var htmlPrimeraNoticia = "";
+
+                    if (noticiaPermanente != "1") {
+                        htmlPrimeraNoticia = "<div class=\"col-md-6\"><article class=\"home-news__article home-news__article--featured\" id='" + idNoticia + "'>" +
+							"<div class=\"media-body\">" +
+
+							"<a href='" + linkNoticia + "'>" +
+							"<img src='" + UrlImagen + "?renditionID=19" + "' alt=\"\" class=\"img-fluid home-news__image\">" +
+							"</a>" +
+							"<h3 class=\"home-news__title\"><a href='" + linkNoticia + "'>" + TituloNoticia + "</a></h3>" +
+							"<hr class=\"hr\">" +
+							"<a class=\"home-news__section\" href='" + getCommunityUrl(linkNoticia) + "'>" + strSeccion + "</a>" +
+							"<p class=\"home-news__date\">" + fechaMod + "</p>" +
+							"</div>" +
+							"</article></div>";
+                    }
+                    else {
+                        htmlPrimeraNoticia = "<div class=\"col-md-6  col-md-3\">" +
+							"<article class=\"home-news__article home-news__article--outstanding\" id='" + idNoticia + "'>" +
+							"<a href='" + linkNoticia + "'>" +
+							"	<img src='" + UrlImagen + "?renditionID=19" + "' alt=\"\" class=\"img-fluid home-news__image\">" +
+							"</a>" +
+							"<div class=\"media-body\">" +
+							"	<h3 class=\"home-news__title\"><a href='" + linkNoticia + "'>" + TituloNoticia + "</a></h3>" +
+							"	<hr class=\"hr\">" +
+							"	<a class=\"home-news__section\" href='" + getCommunityUrl(linkNoticia) + "'>" + strSeccion + "</a>" +
+							"</div>" +
+							"</article>" +
+							"</div>";
+                    }
+
+                    var htmlNoticia = "<div class=\"col-md-3\">" +
+						"<article class=\"home-news__article media\" id='" + idNoticia + "'>" +
+						"<a href='" + linkNoticia + "'>" +
+						"<img src='" + UrlImagen + "?renditionID=20' alt=\"\" class=\"img-fluid home-news__image\">" +
+						"</a>" +
+						"<div class=\"media-body\">" +
+						"<h3 class=\"home-news__title\"><a href='" + linkNoticia + "'>" + TituloNoticia + "</a></h3>" +
+
+						"<p class=\"home-news__text\">" + resumenNoticia + "</p>" +
+						"<hr class=\"hr\">" +
+						"<a class=\"home-news__section\" href='" + getCommunityUrl(linkNoticia) + "'>" + strSeccion + "</a>" +
+						"<p class=\"home-news__date\">" + fechaMod + "</p>" +
+						"</div>" +
+						"</article>" +
+						"</div>";
+
+                    //comprobamos que el elemento no exista
+                    var noticiaExiste = jQuery("#" + idNoticia).length != 0;
+
+                    if ((contadorFila == 0 && contadorElemFila >= MAX_ELEM_PRIMERAFILA) || (contadorFila > 0 && contadorElemFila >= MAX_ELEM_RESTOFILAS)) {
+                        //Si no hemos llegado al limite seguimos insertando en la fila
+                        contadorFila++;
+                        //insertamos una nueva fila si fuera necesario
+                        idNuevaFila = "nFila" + contadorFila;
+
+                        //agregamos clase oculta si es la última fila
+                        if (!noticiaExiste) {
+                            var hiddenStyle = "";
+                            if (contadorFila > 1 && (contadorFila >= numFilasTotales - 1)) {
+                                hiddenStyle = "style=\"display:none;\"";
+                            }
+
+                            jQuery("#contenidoNoticias").append("<div class=\"row\" id=\"" + idNuevaFila + "\"" + hiddenStyle + " ></div>");
+                            divContenedor = jQuery("#" + idNuevaFila);
+                        }
+                        //Reseteamos el contador de elementos por fila
+                        contadorElemFila = 0;
+                        //en caso contrario ya tenemos almacenado el divContenedor
+                    }
+                    if (!noticiaExiste) {
+                        //Hacemos distincion entre la primera noticia y sucesivas 
+                        if (contadorElementos < 1) {
+                            divContenedor.append(htmlPrimeraNoticia).hide().fadeIn();
+                        }
+                        else if (contadorElementos == 1 && isStatic == 1) {
+                            //Si hay noticia estaticas
+                            divContenedor.append(htmlNoticia);
+                            divContenedor.append(htmlStatic);
+                        }
+                        else {
+                            divContenedor.append(htmlNoticia);
+                        }
+                    }
+
+                    contadorElemFila++;
+                    contadorElementos++;
+                }
+
+                //Buscamos si después del proceso aún tenemos filas que mostrar, en caso contrario ocultamos botón
+                if (jQuery("#contenidoNoticias").children(":hidden").length > 0) {
+                    jQuery("#btnVerMasSomosIndra").show();
+                }
+                else {
+                    jQuery("#btnVerMasSomosIndra").hide();
+                }
+            }
+            if (jQuery(".home-news.loadSpace").length > 0) {
+                jQuery(".home-news").removeClass("loadSpace");
+            }
+        });
+    });
+}
+
+function showMoreNews() {
+
+    //mostramos la fila que estaba oculta
+    jQuery("#btnVerMasSomosIndra").hide();
+    var filasPrevias = jQuery("#contenidoNoticias").children().length;
+
+    //llamada al pintado de la siguiente página
+    limiteElementosNoticias = limiteElementosNoticias + 4;
+
+    getPromotedNews(limiteElementosNoticias);
+    jQuery("#contenidoNoticias").children().last().fadeIn();
+    // solo si hay mas elementos que mostrar volvemos a mostrar el boton
+}
+
+function howToItemCount(carousel, item, idx, state) {
+    var numItems = jQuery('#homeHowtoCarrusel .jcarousel-item').length;
+    jQuery('.howtoNavStart').html(idx + " de ");
+    jQuery('.howtoNavEnd').html(numItems);
+}
+
+function getCommunityUrl(url) {
+    var urlR = null;
+    try {
+        urlR = url.substring(0, url.lastIndexOf('/'))
+    }
+    catch (err) {
+        urlR = url;
+    }
+    return urlR;
+}
+
+function getData(tab) {
+    if (tab == "1") {
+        getConoceData();
+    }
+
+    if (tab == "2" && _spPageContextInfo.userId != 139) {
+        getBanner();
+        getHowto();
+    }
+
+    if (tab == "3") {
+        jQuery('.loadingColabora').fadeIn('slow');
+        GetParticipateIn();
+        GetComco();
+        GetSocialGroups('opportunity', 'opportunitiesHome', 'loadingOpportunities');
+        GetSocialGroups('project', 'projectsHome', 'loadingProjects');
+        GetSocialGroups('interest', 'interestsHome', 'loadingInterests');
+    }
+}
+
+function getConoceData() {
+    var fileRefs = new Array();
+    var counter = 0;
+    var paginationIndex = 0;
+    var cont = jQuery("#homeCarrusel ul");
+    if (jQuery(cont).children().length == 0) {
+        jQuery(".loadingHome").fadeIn('slow');
+        var serviceUrl = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/icore4sp/services/HighLightsHomeService.svc/getdata";
+        jQuery.ajax({
+            url: serviceUrl,
+            dataType: "json",
+            cache: useCache
+        }).done(function (data) {
+            data = jQuery.parseJSON(data);
+            var i = 1;
+            if (data != null) {
+                paginationIndex = data.entity.length;
+                for (entity in data.entity) {
+                    if (jQuery.inArray(data.entity[entity].FileRef, fileRefs) == -1) {
+                        var li = jQuery("<li>").hide();
+                        jQuery(cont).append(li);
+                        var divMulimedia = jQuery("<div class=\"contMedia\">");
+                        if (data.entity[entity].HighlightText != "") {
+                            jQuery(divMulimedia).append("<h5 class=\"homeConoceMediaTitle\">" + data.entity[entity].HighlightText + "</h5>");
+                        }
+
+                        var videoLink = data.entity[entity].VideoUrl;
+                        if (videoLink != "") {                            
+                            var video = jQuery("<a  href='" + data.entity[entity].FileRef + "'class=\"contVideoBig\" />");
+                            
+                            jQuery(video).append(data.entity[entity].LiteralVideo);
+                            jQuery(divMulimedia).append(video);
+                        }
+
+                        var href = jQuery("<a href='" + data.entity[entity].FileRef + "' ><img src='" + data.entity[entity].PublishingRollupImage + "' class=\"contImgBig\" alt='" + data.entity[entity].Title + "' /></a>");
+                        jQuery(divMulimedia).append(href);
+                        jQuery(li).append(divMulimedia);
+
+                        var divDesc = jQuery("<div>");
+                        var classDiv = "homeConoceDescrip conoceDescItem" + i;
+                        jQuery(divDesc).attr("class", classDiv);
+
+                        jQuery(divDesc).append("<h4 class=\"conoceDescTit\"><a href=\"" + data.entity[entity].FileRef + "\">" + data.entity[entity].Title + "</a></h4>");
+
+                        var divDetail = jQuery("<div class=\"conoceDescCont\">");
+                        var p = jQuery("<p>");
+                        var author = data.entity[entity].Author;
+
+                        if (data.entity[entity].PublishingContact != null) {
+                            var publishingContact = data.entity[entity].PublishingContact;
+                            var UserName = publishingContact.split('#');
+                            author = UserName[1];
+                        }
+                        var fullAuthor = "";
+
+                        if (author != null) {
+                            fullAuthor = author;
+                        }
+
+                        if (data.entity[entity].ShowManagementUnit != null && data.entity[entity].ShowManagementUnit == "yes") {
+                            if (data.entity[entity].ManagementUnit != "") {
+                                fullAuthor += " / " + data.entity[entity].ManagementUnit;
+                            }
+                        }
+                        else {
+                            fullAuthor += " / "
+                        }
+
+                        jQuery(p).append("<span class=\"conoceDescAut\">" + fullAuthor + "</span>");
+
+                        var description = data.entity[entity].Comments;
+
+                        if (description.length > 150) {
+                            description = description.substring(0, 150) + "...";
+                        }
+
+                        if (description != "") {
+                            jQuery(p).append(description);
+                        }
+
+                        jQuery(divDetail).append(p);
+
+                        var ulTools = jQuery("<ul class=\"mainTools toolsSmall clearfix\">");
+
+                        if (data.entity[entity].IsBookmark == "Yes") {
+                            jQuery(ulTools).append("<li class='mainToolsLi mainToolsReadlater'><a href=\"#\" id=\"bookmark\" title=\"Leer más tarde\" class=\"is-clicked\"></a></li>")
+                        }
+                        else if (data.entity[entity].IsBookmark == "No") {
+                            jQuery(ulTools).append("<li class='mainToolsLi mainToolsReadlater'><a href=\"#\" id=\"bookmark\" title=\"Leer más tarde\" onclick=\"addBookmark('" + _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/indraweb/info.aspx', this, '" + data.entity[entity].Title + "', '" + data.entity[entity].FileRef + "','" + data.entity[entity].bc + "')\"></a></li>");
+                        }
+
+
+                        jQuery(ulTools).append("<li class='mainToolsLi mainToolsComments' ><a href=\"#\" id=\"comments\" title=\"Comentarios\" class=\"is-clicked\"><span>" + data.entity[entity].CommentCount + "</span></a></li>");
+
+                        if (data.entity[entity].LikesCount == null || data.entity[entity].LikesCount === "") {
+                            jQuery(ulTools).append("<li  class='mainToolsLi mainToolsLike'><a href=\"#\" id=\"likeit\" class=\"is-clicked\"></a></li>");
+                        }
+                        else {
+                            jQuery(ulTools).append("<li  class='mainToolsLi mainToolsLike'><a href=\"#\" id=\"likeit\" class=\"is-clicked\"><span>" + data.entity[entity].LikesCount + "</span></a></li>");
+                        }
+
+                        jQuery(divDetail).append(ulTools);
+
+                        jQuery(divDesc).append(divDetail);
+                        jQuery(li).append(divDesc);
+
+                        li.fadeIn();
+                    }
+
+                    fileRefs[counter] = data.entity[entity].FileRef;
+
+                    i++;
+                    counter++;
+                }
+            }
+            if (jQuery('#homeCarrusel').length > 0) {
+                jQuery('#homeCarrusel').jcarousel({
+                    scroll: 1
+                });
+            };
+
+            if (jQuery('#homeCarrusel').length > 0) {
+                jQuery('#homeCarrusel').jcarousel({
+                    scroll: 1,
+                    itemVisibleInCallback: function (evt, state, index) {
+                        setActiveBall(index);
+                    }
+                });
+
+                paginateJCarousel(paginationIndex);
+            };
+
+            jQuery(".loadingHome").hide();
+        });
+    }
+}
+
+function paginateJCarousel(index) {
+    var div = jQuery(".jcarousel-pagination");
+    var left = 600;
+
+    jQuery(div).css("top", "340px");
+
+    var divHtml = "";
+    for (var i = 0; i < index; i++) {
+        var slide = i + 1;
+        if (i == 0)
+            divHtml += "<a class='active' href='#' onclick='goToSlide(" + slide + ");'></a>";
+        else
+            divHtml += "<a href='#' onclick='goToSlide(" + slide + ");'></a>";
+    }
+    if (index == 1) {
+        left -= 20;
+    }
+    else {
+        left -= index * 20;
+    }
+
+    jQuery(div).css("left", left + "px");
+
+    jQuery(div).html(divHtml);
+}
+
+function setActiveBall(activeBall) {
+    jQuery(".jcarousel-pagination a").each(function (index) {
+        if (activeBall - 1 == index) {
+            jQuery(this).addClass("active");
+        }
+        else {
+            jQuery(this).removeClass("active");
+        }
+    });
+}
+
+function goToSlide(slide) {
+    activeBall = slide;
+    jQuery('#homeCarrusel').jcarousel('scroll', slide);
+}
+
+function DeleteToolFavouriteFromRemove(e, idherramienta) {
+    e.preventDefault();
+    var deleteQuestionFav = jQuery("#hiddenDeleteQuestion").val();
+    var blnSalida = false;
+    var valor = "*" + e.currentTarget.id.split("*")[1];
+    deleteQuestionFav = deleteQuestionFav.replace("{0}", "\"" + (jQuery("[name*='" + valor + "']").nextAll()[1].innerText) + "\"");
+
+    if (confirm(deleteQuestionFav)) {
+        var canaryValue = document.getElementById('__REQUESTDIGEST').value;
+        var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/tool.ashx";
+        jQuery.ajax({
+            url: urlAjax,
+            dataType: "json",
+            cache: useCache,
+            type: "post",
+            data: {
+                oper: "1",
+                idherramienta: idherramienta,
+                l: LanguageName
+            },
+            beforeSend: function (request) {
+                request.setRequestHeader("X-RequestDigest", canaryValue);
+            },
+            async: false
+        }).done(function (data) {
+            //LoadCarousel();
+            //Si no hay mensaje es que no hay error
+            if (data !== null) {
+                blnSalida = false;
+                SPModalDialog("/_layouts/15/indraweb/info.aspx?msg=" + data.respuesta, "Mail", 940);
+            }
+            else {
+                blnSalida = true;
+            }
+
+        }).fail(function (error) {
+            blnSalida = false;
+        });
+    }
+
+    return blnSalida;
+}
+
+function LoadCarousel() {
+    if (jQuery('#homeToolsCarrusel').length > 0) {
+        jQuery('#homeToolsCarrusel').jcarousel({
+            scroll: 1
+        });
+        /* Función de quitar elementos del carrusel */
+        var carousel = $('#homeToolsCarrusel').data('jcarousel');
+        carousel.removeAndAnimate = function (i) {
+            var counter = 1;
+            var itemsHTML = new Array();
+            var e = this.get(i);
+            children = e.parent().find('li');
+            $(e).remove()
+            $.each(children, function () {
+                if (counter != i) {
+                    itemsHTML[counter] = $(this).removeAttr('class').removeAttr('jcarouselindex');
+                }
+                counter++;
+            });
+            this.size(this.options.size - 1);
+            this.reset();
+            counter = 1;
+            carousel = this;
+            $.each(itemsHTML, function (k, v) {
+                if (v != null) {
+                    carousel.add(counter, v[0].innerHTML);
+                    counter++;
+                }
+            });
+            this.reload();
+            $('.btn-remove .btn-home').on('click', function (e) {
+                e.preventDefault();
+                var elULpadre = $(this).parents('ul.homeCreaCarItemList');
+                if (DeleteToolFavouriteFromRemove(e, e.currentTarget.id.split("*")[1])) {
+                    //Aqui quitamos el li correspondiente
+                    //Cogemos los paneles (LI) del carrusel
+                    var lesPanels = $('#homeToolsCarrusel .jcarousel-item');
+                    //Miramos en que panel está el elemento actual
+                    var actPanel = $(this).parents('li.jcarousel-item').attr('jcarouselindex');
+                    //IF - Si el elemento actual NO ESTA en el último panel (es decir, que es anterior al último)
+                    if (actPanel < lesPanels.length) {
+                        //Borramos el elemento actual
+                        $(this).parent('.btn-remove').parent('li').remove();
+                        //Iniciamos un bucle desde el panel actual hasta el final
+                        while (actPanel < lesPanels.length) {
+                            //Cogemos el primer elemento del panel siguiente y hacemos un appendTo al panel actual
+                            var thisPanelUl = $(lesPanels[actPanel - 1]).children('.homeCreaCarItemList');
+                            var nextPanelFirstLi = $(lesPanels[actPanel]).find('.homeCreaCarItemList li').first();
+                            $(nextPanelFirstLi).appendTo(thisPanelUl);
+                            //Repetimos hasta el panel final
+                            actPanel++;
+                        }
+                        //ELSE - Si el elemento actual ESTA en el último elemento...
+                    }
+                    else {
+                        //Borramos el elemento actual
+                        $(this).parent('.btn-remove').parent('li').remove();
+                        //Fin del IF-ELSE
+                    }
+                    //Luego, verificamos si el último panel no está vacío y si lo está, lo eliminamos
+                    var lastPanelLiNum = $(lesPanels[lesPanels.length - 1]).find('.homeCreaCarItemList li').length;
+                    if (lastPanelLiNum === 0) {
+                        $(lesPanels[lesPanels.length - 1]).remove();
+                        $('#homeToolsCarrusel').data('jcarousel').size(lesPanels.length - 1);
+                    }
+                    //Recargamos el carrusel
+                    $('#homeToolsCarrusel').data('jcarousel').reload();
+                }
+                if (elULpadre.children('li').length === 0) {
+                    var itemIndex = $(elULpadre).parents('.jcarousel-item').attr('jcarouselindex');
+                    carousel.removeAndAnimate(itemIndex);
+                }
+
+            });
+            //AQUI GUARDAR LA LISTA ACTUAL EN LAS PREFERENCIAS DEL USUARIO
+        };
+
+        /* Events */
+
+        //Evento de quitar elementos del carrusel de herramientas
+        $('.btn-remove .btn-home').on('click', function (e) {
+            e.preventDefault();
+            var elULpadre = $(this).parents('ul.homeCreaCarItemList');
+            if (DeleteToolFavouriteFromRemove(e, e.currentTarget.id.split("*")[1])) {
+                //Cogemos los paneles (LI) del carrusel
+                var lesPanels = $('#homeToolsCarrusel .jcarousel-item');
+                //Miramos en que panel está el elemento actual
+                var actPanel = $(this).parents('li.jcarousel-item').attr('jcarouselindex');
+                //IF - Si el elemento actual NO ESTA en el último panel (es decir, que es anterior al último)
+                if (actPanel < lesPanels.length) {
+                    //Borramos el elemento actual
+                    $(this).parent('.btn-remove').parent('li').remove();
+                    //Iniciamos un bucle desde el panel actual hasta el final
+                    while (actPanel < lesPanels.length) {
+                        //Cogemos el primer elemento del panel siguiente y hacemos un appendTo al panel actual
+                        var thisPanelUl = $(lesPanels[actPanel - 1]).children('.homeCreaCarItemList');
+                        var nextPanelFirstLi = $(lesPanels[actPanel]).find('.homeCreaCarItemList li').first();
+                        $(nextPanelFirstLi).appendTo(thisPanelUl);
+                        //Repetimos hasta el panel final
+                        actPanel++;
+                    }
+                    //ELSE - Si el elemento actual ESTA en el último elemento...
+                }
+                else {
+                    //Borramos el elemento actual
+                    $(this).parent('.btn-remove').parent('li').remove();
+                    //Fin del IF-ELSE
+                }
+                //Luego, verificamos si el último panel no está vacío y si lo está, lo eliminamos
+                var lastPanelLiNum = $(lesPanels[lesPanels.length - 1]).find('.homeCreaCarItemList li').length;
+                if (lastPanelLiNum === 0) {
+                    $(lesPanels[lesPanels.length - 1]).remove();
+                    $('#homeToolsCarrusel').data('jcarousel').size(lesPanels.length - 1);
+                }
+                //Recargamos el carrusel
+                $('#homeToolsCarrusel').data('jcarousel').reload();
+            }
+            if (elULpadre.children('li').length === 0) {
+                var itemIndex = $(elULpadre).parents('.jcarousel-item').attr('jcarouselindex');
+                carousel.removeAndAnimate(itemIndex);
+            }
+        });
+    };
+}
+
+function getBanner() {
+    var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/services/Tools.svc/getbannertoolhome";
+
+    var contenidoBanner = jQuery("#contenidoBanner");
+
+    if (contenidoBanner.children().length == 0) {
+        jQuery.ajax({
+            url: urlAjax,
+            dataType: "json",
+            cache: useCache,
+            type: "GET"
+        }).done(function (data) {
+            jQuery("#contenidoBanner").append(data);
+            //h5.insertAfter(data);
+        }).fail(function (err) {
+            //alert(err.responseText);
+        });
+    }
+}
+
+function getHowto() {
+    var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/services/Tools.svc/gethowto";
+
+    var div = jQuery("#homeHowtoCarrusel");
+    var ul = jQuery("#homeHowtoCarruselul");
+
+    if (jQuery('#homeHowtoCarruselul').children().length == 0) {
+        jQuery.ajax({
+            url: urlAjax,
+            dataType: "json",
+            cache: useCache,
+            type: "GET"
+        }).done(function (data) {            
+            data = JSON.parse(data);
+            jQuery.each(data, function (key, value) {
+                var li = jQuery("<li/>");
+                var span = jQuery("<span/>");
+
+                if (value.Comments.length > 80) {
+                    span.html(value.Comments.substring(0, 80) + "...");
+                }
+                else {
+                    span.html(value.Comments);
+                }
+
+                var fileUrl = value.FileRef.split(";#")[1];
+                if (!fileUrl.startsWith('/')) {
+                    fileUrl = "/" + fileUrl;
+                }
+
+                var href = _spPageContextInfo.siteAbsoluteUrl + fileUrl;
+
+                var a = jQuery("<a/>").attr({
+                    "href": href
+                }).html(value.Title);
+
+                li.append(a);
+                li.append(span);
+                ul.append(li);
+            });
+
+            if (data != null && data.length >= 1) {
+                div.append(ul);
+                var divcont = jQuery("<div/>").attr({
+                    "class": "homeHowtoCarNav"
+                });
+                var spanStart = jQuery("<span/>").attr({
+                    "class": "howtoNavStart"
+                }).html(1 + "de ");
+                var spanEnd = jQuery("<span/>").attr({
+                    "class": "howtoNavEnd"
+                }).html(data.length);
+                divcont.append(spanStart, spanEnd);
+                div.append(divcont);
+                jQuery('#homeHowtoCarrusel').jcarousel({
+                    scroll: 1,
+                    itemFirstInCallback: {
+                        onAfterAnimation: howToItemCount
+                    }
+                });
+            }
+            else {
+                jQuery("#homeHowtoCarrusel").hide();
+                jQuery('#prehowto').hide();
+            }
+        }).fail(function (err) {
+            //alert(err.responseText);
+        });
+    }
+}
+
+function GetComco() {
+    var divComco = jQuery('#comcoHomeDiv');
+    var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/comcoHome.ashx";
+    if (jQuery(divComco).children().length == 0) {
+        jQuery.ajax({
+            type: "POST",
+            url: urlAjax,
+            cache: useCache
+        }).done(function (data) {
+            if (data != null && data != '') {
+                jQuery('#loadingComco').remove();
+                divComco.html('');
+                divComco.append(data);
+            }
+        });
+    }
+}
+
+function GetSocialGroups(groupType, idDivControl, idLoadingControl) {
+    var divControl = jQuery('#' + idDivControl);
+    var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/socialGroupsHome.ashx?GroupsType=" + groupType;
+    if (jQuery(divControl).children().length == 0) {
+        jQuery.ajax({
+            type: "POST",
+            url: urlAjax,
+            cache: useCache
+        }).done(function (data) {
+            if (data != null && data != '') {
+                jQuery('#' + idLoadingControl).remove();
+                divControl.html('');
+                divControl.append(data);
+            }
+        });
+    }
+}
+
+function GetParticipateIn() {
+    var divParticipateIn = jQuery('#participateInHome');
+    var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/participateInSocialGroups.ashx";
+    if (jQuery(divParticipateIn).children().length == 0) {
+        jQuery.ajax({
+            type: "POST",
+            url: urlAjax,
+            cache: useCache
+        }).done(function (data) {
+            if (data != null && data != '') {
+                jQuery('#loadingParticipate').remove();
+                divParticipateIn.html('');
+                divParticipateIn.append(data);
+            }
+        });
+    }
+}

@@ -1,0 +1,389 @@
+/* NOTIFICACIONES DE LA INDRAWEB */
+
+//Cogemos las variables de recursos
+res = new Resource("Notifications", "CloseButton", "by", "NewNotifTitleRed", "NewNotifReplyIn", "NewNotifRequestIn", "NewNotifNewPost", "NewNotifGroupsRed", "NewNotifManage", "NewNotifTitleConfig", "NewNotifDelete", "NewNotifSelecAll");
+
+var rootNotifUrl = window.location.protocol + "//" + window.location.host + "/_layouts/15/icore4sp/handlers/currentUserNotifications.ashx";
+
+jQuery(document).ready(function () {
+
+    //Notificación para botón de Unión a grupo de la Red
+    jQuery(".redGrupoBtnUnirme").on("click", function () {
+        var enlaceNombreUsuario = jQuery(".redGrupoAdministrador").attr('href');
+        enlaceNombreUsuario = enlaceNombreUsuario.toLowerCase();
+        var usuarioNot = enlaceNombreUsuario.split("%5c")[1];
+        var urlPagMembers = window.location.href;
+        if (urlPagMembers.indexOf("webUrl=") > -1) {
+            urlPagMembers = urlPagMembers.split("webUrl=")[1];
+            urlPagMembers += "/Pages/ProfessionalGroupMembers.aspx?activeTag=GroupMembers";
+        }
+
+        sendNotificationTo("indra\\" + usuarioNot, "NewNotifTitleRed", "NewNotifRequestIn", _spPageContextInfo.webTitle, "", urlPagMembers);
+    });
+
+    //Si la página que se abre tiene notificación la borro de la lista de notificaciones del mysite del usuario actual
+    var numNotif = getURLParam("notificacion");
+    if (numNotif != "") {
+        deleteNotification(numNotif);
+    }
+
+})
+
+//Muestra el asistente con las notificaciones del usuario
+function showWindowNotif() {
+    var modalContent = "";
+    modalContent += "<div class='modal fade' id='notifModal' role='dialog' aria-hidden='true' data-backdrop='static' data-keyboard='false'>"
+    modalContent += "   <div class='modal-dialog'>";
+    modalContent += "       <div class='modal-content'>";
+    modalContent += "           <div class='modal-header'>";
+    modalContent += "               <label class='notif-title-big'>" + res.getResourceValue("Notifications") + "</label>";
+    modalContent += "           </div>";
+    modalContent += "           <div class='modal-body'>";
+    modalContent += "               <div class='notif-seleccall'><label class='custom-checkbox custom-control-inline' for='check_Notif_SelecAll'><input type='checkbox' class='custom-control-input' id='check_Notif_SelecAll' onclick='SelecAllNotifications();'><span class='custom-control-indicator'></span><span class='custom-control-description'>" + res.getResourceValue("NewNotifSelecAll") + "</span></label></div>";
+    var contentNotif = "<ul class='winPopList'>";
+    var haynotif = "0";
+
+    jQuery.ajax({
+        url: rootNotifUrl + "?oper=1",
+        type: "GET",
+        dataType: "json",
+        async: false,
+        cache: false,
+        success: function (data) {
+            if (data != null) {
+                if (data.entity != null) {
+                    if (data.entity.length > 0) {
+                        haynotif = "1";
+                        for (var i = 0; i < data.entity.length; i++) {
+                            contentNotif += "<li>";
+                            var fecha = data.entity[i].Created;
+                            var urlnotification = data.entity[i].Url.toLowerCase();
+
+                            urlnotification = urlnotification.toLowerCase();
+                            if (urlnotification.indexOf("weburl=") > -1) {
+                                urlnotification = urlnotification.split("weburl=")[1];
+                            }
+
+                            if (urlnotification.indexOf("?notificacion=") > -1) {
+                                urlnotification = urlnotification.split("?notificacion=")[0];
+                            }
+
+                            contentNotif += "<div class='modal-notif-check'><label class='custom-checkbox custom-control-inline' for='check_Notif_" + data.entity[i].ID + "'><input type='checkbox' class='check_Notif custom-control-input' id='check_Notif_" + data.entity[i].ID + "'><span class='custom-control-indicator'></span><span class='custom-control-description'>" + fecha.substr(0, 10) + "</span></label></div>";
+                            contentNotif += "<div class='modal-notif-content'>" + getContentNotif(data.entity[i].ID, data.entity[i].Title, data.entity[i].GroupName, data.entity[i].Author, urlnotification, data.entity[i].Comments) + "</div>";
+                            contentNotif += "</li>";
+                        }
+                    }
+                }
+            }
+        },
+        error: function (err, status, message) {
+            //console.log("Error " + message);
+        }
+    });
+
+    contentNotif += "</ul>";
+    modalContent += contentNotif;
+    modalContent += "           </div>";
+    modalContent += "           <div class='modal-footer'>";
+    modalContent += "               <button type='button' class='button--1' onclick='openManageGroupNotifications();'>" + res.getResourceValue("NewNotifManage") + "</button>";
+    modalContent += "               <button id='buttondelete' type='button' class='button--1' onclick='DeleteNotifications();'>" + res.getResourceValue("NewNotifDelete") + "</button>";
+    modalContent += "               <button type='button' class='button--1' onclick='jQuery(\"#notifModal\").modal(\"hide\");'>" + res.getResourceValue("CloseButton") + "</button>";
+    modalContent += "           </div>";
+    modalContent += "       </div>";
+    modalContent += "   </div>";
+    modalContent += "</div>";
+
+    //console.log(modalContent);
+    jQuery(modalContent).appendTo("#s4-workspace");
+
+    if (haynotif == "0") {
+        jQuery(".notif-seleccall").hide();
+        jQuery("#buttondelete").hide();
+    }
+
+    jQuery("#notifModal").modal();
+
+    jQuery("#notifModal").on('hidden.bs.modal', function () {
+        jQuery("#notifModal").remove();
+    });
+}
+
+//Devuelve el contenido de la notificación con enlace
+function getContentNotif(id, title, groupname, author, url, comments) {
+    var content = res.getResourceValue(title);
+    if (comments.length > 100) {
+        comments = comments.substring(0, 100) + "...";
+    }
+
+    var result = "";
+    var notificationLink = "";
+
+    switch (title) {
+        case "NewNotifReplyIn":
+            var groupWithLink = "";
+
+            if (url.indexOf("?") > -1) {
+                groupWithLink += groupname;
+                notificationLink = "<span id='notifNum_" + id + "' style='cursor: pointer;' onclick=\"window.location.href='" + url + "¬ificacion=" + id + "'\">";
+            }
+            else {
+                groupWithLink += groupname;
+                notificationLink = "<span id='notifNum_" + id + "' style='cursor: pointer;' onclick=\"window.location.href='" + url + "?notificacion=" + id + "'\">";
+            }
+
+            result = notificationLink + "<span class='notif-author'>" + author + "</span>" + " " + String.format(content, "<span class='message-notif-grey'>" + comments + ".</span>", "<span class='message-notif-yellow'>" + groupWithLink + "</span></span>");
+
+            break;
+
+        case "NewNotifRequestIn":
+            var groupWithLink = "";
+
+            if (url.indexOf("?") > -1) {
+                groupWithLink += groupname;
+                notificationLink = "<span id='notifNum_" + id + "' style='cursor: pointer;' onclick=\"window.location.href='" + url + "¬ificacion=" + id + "'\">"
+            }
+            else {
+                groupWithLink += groupname;
+                notificationLink = "<span id='notifNum_" + id + "' style='cursor: pointer;' onclick=\"window.location.href='" + url + "?notificacion=" + id + "'\">"
+            }
+
+            result = notificationLink + "<span class='notif-author'>" + author + "</span>" + " " + String.format(content, "<span class='message-notif-yellow'>" + groupWithLink + "</span></span>");
+
+            break;
+
+        case "NewNotifNewPost":
+            var groupWithLink = "";
+
+            if (url.indexOf("?") > -1) {
+                groupWithLink += groupname;
+                notificationLink = "<span id='notifNum_" + id + "' style='cursor: pointer;' onclick=\"window.location.href='" + url + "¬ificacion=" + id + "'\">";
+            }
+            else {
+                groupWithLink += groupname;
+                notificationLink = "<span id='notifNum_" + id + "' style='cursor: pointer;' onclick=\"window.location.href='" + url + "?notificacion=" + id + "'\">";
+            }
+
+            result = notificationLink + "<span class='notif-author'>" + author + "</span>" + " " + String.format(content, "<span class='message-notif-yellow'>" + groupWithLink + "</span>", "<span class='message-notif-grey'>" + comments + ".</span></span>");
+
+            break;
+    }
+
+    return result;
+}
+
+//Devuelve el contenido de la notificación sin enlace
+function getContentNotif_NoLink(title, groupname, author, comments) {
+    var content = res.getResourceValue(title);
+    if (comments.length > 100) {
+        comments = comments.substring(0, 100) + "...";
+    }
+
+    var result = "";
+    switch (title) {
+        case "NewNotifReplyIn":
+            result = "<span class='notif-author'>" + author + "</span>" + " " + String.format(content, "<span class='message-notif-yellow'>" + comments + "</span>", "<span class='message-notif-yellow'>" + groupname + "</span>");
+            break;
+        case "NewNotifRequestIn":
+            result = "<span class='notif-author'>" + author + "</span>" + " " + String.format(content, "<span class='message-notif-yellow'>" + groupname + "</span>");
+            break;
+        case "NewNotifNewPost":
+            result = "<span class='notif-author'>" + author + "</span>" + " " + String.format(content, "<span class='message-notif-yellow'>" + groupname + "</span>", "<span class='message-notif-yellow'>" + comments + "</span>");
+            break;
+    }
+    return result;
+}
+
+//Cierra la notificación y muestra la ventana de notificaciones
+function closeNotifAndShowWindowNotif() {
+    jQuery(".message-notif").fadeOut("fast", function () {
+        showWindowNotif();
+    });
+}
+
+//Devuelve el número de notificación de la url
+function getURLParamNotif() {
+    if (window.location.href.indexOf('?notificacion=') != -1) {
+        var url = window.location.href;
+        var num_notif = url.split("?notificacion=")[1];
+        return num_notif;
+    }
+
+    return "";
+}
+
+//Graba la notificación en la lista del mysite del usuario
+function sendNotificationTo(user, titlepopup, title, groupname, comments, url) {
+    //El campo de la lista de notificaciones solo admite 255 caracteres, nunca mostramos mas de 100 por lo que lo cortamos para que no falle
+    if (comments.length > 254) {
+        comments = comments.substring(0, 254);
+    }
+
+    var usuarioActual = getLoginNameUser();
+    if (usuarioActual != "i:0#.w|" + user) {
+        var currentUrl = "";
+        if (url != null) {
+            if (url.toLowerCase().indexOf("weburl=") > -1) {
+                currentUrl = url.split("webUrl=")[1];
+            }
+            else {
+                currentUrl = url;
+            }
+        }
+        else {
+            if (window.location.href.indexOf("?") > -1) {
+                currentUrl = window.location.href.split("?")[0];
+            }
+            else {
+                currentUrl = window.location.href;
+            }
+        }
+
+        jQuery.ajax({
+            url: rootNotifUrl,
+            type: "POST",
+            data: {
+                to: user,
+                titlepopup: titlepopup,
+                title: title,
+                groupname: groupname,
+                comments: comments,
+                url: currentUrl,
+                author: usuarioActual
+            },
+            success: function () {
+                //console.log("bien");
+            },
+            error: function () {
+                //console.log("mal");
+            }
+        });
+    }
+}
+
+//Borra la notificación que se pasa como parámetro
+function deleteNotification(numNotif) {
+    jQuery.ajax({
+        url: rootNotifUrl,
+        type: "POST",
+        async: false,
+        data: {
+            numNotif: numNotif
+        },
+        success: function () {
+            //console.log("Delete OK");
+
+        },
+        error: function () {
+            //console.log("Delete ERROR");
+        }
+    });
+}
+
+function openManageGroupNotifications() {
+    jQuery("#notifModal").modal("hide");
+    var options = SP.UI.$create_DialogOptions();
+    options.title = "";
+    options.width = 550;
+    options.height = 450;
+    options.url = "/_layouts/15/indraweb/ManageGroupNotifications.aspx";
+    SP.UI.ModalDialog.showModalDialog(options);
+}
+
+//**********************************************************
+// Devuelve el LoginName del usuario actual
+//**********************************************************
+function getLoginNameUser() {
+    var login;
+    var userid = _spPageContextInfo.userId;
+    var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/getuserbyid(" + userid + ")";
+    jQuery.ajax({
+        url: requestUri,
+        contentType: "application/json;odata=verbose",
+        async: false,
+        cache: true,
+        headers: {
+            "accept": "application/json;odata=verbose"
+        },
+        success: function (data) {
+            login = data.d.LoginName;
+        },
+        error: function (data) {
+            //console.log(JSON.stringify(data));
+        }
+    });
+
+    return login;
+}
+
+function getNameUser() {
+    var name;
+    var userid = _spPageContextInfo.userId;
+    var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/getuserbyid(" + userid + ")";
+    jQuery.ajax({
+        url: requestUri,
+        contentType: "application/json;odata=verbose",
+        async: false,
+        cache: true,
+        headers: {
+            "accept": "application/json;odata=verbose"
+        },
+        success: function (data) {
+            name = data.d.Title;
+        },
+        error: function (data) {
+            //console.log(JSON.stringify(data));
+        }
+    });
+
+    return name;
+}
+
+
+function sendNotificationNewPost(urlGroup, textPost) {
+    //El campo de la lista de notificaciones solo admite 255 caracteres, nunca mostramos mas de 100 por lo que lo cortamos para que no falle
+    if (textPost.length > 254) {
+        textPost = textPost.substring(0, 254);
+    }
+
+    jQuery.ajax({
+        url: rootNotifUrl + "?oper=2",
+        type: "POST",
+        data: {
+            titlepopup: "NewNotifTitleRed",
+            title: "NewNotifNewPost",
+            comments: textPost,
+            url: urlGroup,
+            author: getLoginNameUser()
+        },
+        success: function () {
+            //console.log("bien");
+        },
+        error: function () {
+            //console.log("mal");
+        }
+    });
+}
+
+function DeleteNotifications() {
+    jQuery(".check_Notif").each(function () {
+        if (this.checked) {
+            var deleteId = this.id;
+            deleteId = deleteId.split("check_Notif_")[1];
+            deleteNotification(deleteId);
+        }
+    })
+
+    getNotifications();
+    jQuery("#notifModal").modal("hide");
+}
+
+function SelecAllNotifications() {
+    var isChecked = undefined;
+    if (jQuery('#check_Notif_SelecAll').is(':checked')) {
+        isChecked = 'checked';
+    }
+
+    jQuery(".check_Notif").each(function () {
+        this.checked = isChecked;
+    })
+}

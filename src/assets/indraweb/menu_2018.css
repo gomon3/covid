@@ -1,0 +1,215 @@
+/*
+Name: Menu module
+Description: Styles for Indraweb menu
+Author: devila
+Version: 0.3
+Last revision: 17:51 22/11/2012
+*/
+
+#menu {
+padding: 0 0 10px 0;
+min-height: 44px; min-height: 2.75rem;
+}
+
+#navmenu {
+margin: 15px 0 0 0; margin: .94rem 0 0 0;
+padding: 0;
+float: left;
+list-style-type: none;
+}
+
+#navmenu li {
+max-width: 128px; max-width: 8rem;
+margin: 0 0 0 30px; margin: 0 0 0 1.88rem;
+padding: 0 0 2px 0; padding: 0 0 .13rem 0;
+float: left;
+font-size: 14px; font-size: .88rem;
+font-family: NeoSans-n7, NeoSans, Arial, Helvetica, sans-serif;
+font-weight: 700;
+text-align: center;
+}
+
+#navmenu li:first-child {
+margin-left: 0;
+}
+
+#navmenu li.is-selected {
+border-bottom: 4px solid #00b2cc; border-bottom: .25rem solid #00b2cc;
+}
+
+#navmenu li.is-selected a {
+/*cursor: default;*/
+}
+
+#navmenu li a {
+color: #333;
+text-transform: uppercase;
+}
+
+#navmenu li a:hover {
+text-decoration: none;
+}
+
+#buscador {
+float: right;
+margin: 0;
+padding: 11px 0 0 0; padding: .69rem 0 0 0;
+height: 24px; height: 1.5rem;
+overflow: hidden;
+font-size: 12px; font-size: .75rem;
+color: #000000;
+}
+
+/*
+#menu-buscador, #menu-buscador-select-wrap, #menu-buscador-type, #menu-buscador-query, #menu-buscador-submit {
+-webkit-appearance: none;
+border: none;
+margin: 0;
+padding: 0;
+height: 24px; height: 1.5rem;
+}
+
+#menu-buscador-submit::-moz-focus-inner { padding:0 }
+
+#menu-buscador-type {
+width: 132px; width: 8.25rem;
+padding: 2px 4px; padding: .13rem .25rem;
+background: url('/_layouts/15/images/indraweb/header-sprite.png') no-repeat;
+background-position: -620px 11px; background-position: -38.75rem .69rem;
+background-color: rgba(0,0,0,0);
+line-height: 1.25;
+border: 1px solid white;
+}
+
+#menu-buscador-select-wrap {
+float: left;
+width: 110px; width: 6.88rem;
+overflow: hidden;
+background: white;
+}
+
+#menu-buscador-query {
+width: 160px; width: 10rem;
+padding: 2px 4px; padding: .13rem .25rem;
+background: white;
+vertical-align: top;
+border-top: 1px solid white;
+border-left: 1px solid white;
+border-bottom: 1px solid white;
+-webkit-box-shadow: inset 1px 1px 0px 0px #e8e8e8;
+box-shadow: inset 1px 1px 0px 0px #e8e8e8;
+margin-left: 2px; margin-left: .13rem;
+}
+
+#menu-buscador-submit {
+width: 32px; width: 2rem;
+min-width: 0;
+text-indent: -160px; text-indent: -10rem;
+overflow: hidden;
+background: url('/_layouts/15/images/indraweb/header-sprite.png') no-repeat;
+background-position: -590px 5px; background-position: -36.88rem .31rem;
+background-color: white;
+vertical-align: top;
+outline: none;
+border-top: 1px solid white;
+border-right: 1px solid white;
+border-bottom: 1px solid white;
+-webkit-box-shadow: inset 0px 1px 0px 0px #e8e8e8;
+box-shadow: inset 0px 1px 0px 0px #e8e8e8;
+}
+*/
+
+.submenu {
+display: none;
+clear: both;
+height: 236px; height: 14.75rem;
+overflow: hidden;
+padding: 10px 0 24px 0; padding: .63rem 0 1.5rem 0;
+font-size: 12px; font-size: .75rem;
+color: #666;
+position:relative;
+}
+
+.submenu a {
+color: #666;
+}
+
+.submenu a:hover {
+text-decoration: none;
+color: #0098ca;
+}
+
+.submenu-col1, .submenu-col2, .submenu-col3 {
+width: 188px; width: 11.75rem;
+padding-top: 10px; padding-top: .63rem;
+}
+
+.submenu-col {
+height: 236px; height: 14.75rem;
+overflow: hidden;
+float: left;
+padding: 0 18px; padding: 0 1.13rem;
+border-left: 1px dotted #cacaca;
+}
+
+.submenu-col ul {
+margin: 0 14px 16px 14px; margin: 0 .88rem 1rem .88rem;
+padding: 0;
+list-style: none;
+}
+
+.submenu-col li {
+line-height: 1.4;
+}
+
+.submenu-group-main {
+font-weight: 700;
+}
+
+.submenu-col ul.submenu-community-title {
+margin-bottom: 0;
+}
+
+.submenu-community {
+width: 188px; width: 11.75rem;
+height: 23px; height: 1.44rem;
+padding: 0 0 0 8px; padding: 0 0 0 .5rem;
+margin-bottom: 16px; margin-bottom: 1rem;
+border: 1px solid white;
+font-size: 12px; font-size: .75rem;
+color: #999;
+line-height: 1.5;
+-webkit-box-shadow: inset 1px 1px 0px 0px rgba(232, 232, 232, 1);
+box-shadow: inset 1px 1px 0px 0px rgba(232, 232, 232, 1);
+}
+
+.menu-banner {
+display: block;
+margin: 20px 0 0 0; margin: 1.25rem 0 0 0;
+}
+
+.submenu-banner a:first-child .menu-banner, .submenu-banner .adsMedia:first-child .menu-banner {
+margin: 0;
+}
+
+.submenu-cerrar {
+width: 49px; width: 3.06rem;
+height: 38px; height: 2.38rem;
+overflow: hidden;
+text-indent: -160px; text-indent: -10rem;
+position: absolute;
+top: 205px; top: 12.81rem;
+left: 427px; left: 26.69rem;
+background:url('/_layouts/15/images/indraweb/submenu-cerrar.png') center top no-repeat;
+}
+
+.submenu-cerrar a {
+display: block;
+width: 49px; width: 3.06rem;
+height: 38px; height: 2.38rem;
+}
+
+.js-sharing-fullListDialogCommandInvite
+{
+    display: none !important;
+}

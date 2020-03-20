@@ -1,0 +1,42 @@
+﻿function LoadMenuEvents() {
+    /* Inits */
+
+    var currentSection = jQuery('#navmenu li.is-selected a').attr('id');
+
+    //Evento del botón de cerrar el submenú
+    jQuery('.submenu-cerrar a').bind('click', function (edata) {
+        edata.preventDefault();
+        jQuery('#navmenu li').removeClass('is-selected');
+        jQuery('div[id^="submenu"]:visible').slideUp('fast');
+        if (typeof currentSection != 'undefined') { jQuery('#' + currentSection).parent('li').addClass('is-selected'); }
+    });
+
+}
+
+function ShowMenu(element) {
+    var submenuId = jQuery(element).attr('id');
+    if (jQuery('#sub' + submenuId + ' div').length == 1) {
+        window.location.href = jQuery(element).attr("href");
+    }
+    else if (jQuery('div[id^="submenu"]').is(':visible')) {
+        jQuery(element).parent('li').siblings().removeClass('is-selected');
+        jQuery(element).parent('li').addClass('is-selected');
+        jQuery('div[id^="submenu"]:visible').hide();
+        jQuery('#sub' + submenuId).fadeIn('slow');
+    } else {
+        jQuery(element).parent('li').siblings().removeClass('is-selected');
+        jQuery(element).parent('li').addClass('is-selected');
+        jQuery('#sub' + submenuId).slideDown('fast');
+    }
+
+    return false;
+}
+
+function OpenCommunity() {
+    var selectedCommunity = jQuery('#community option:selected');
+    var index = jQuery('#community option').index(selectedCommunity);
+    if (index > 0)
+        window.location.href = selectedCommunity.val();
+}
+
+jQuery(document).ready(LoadMenuEvents);

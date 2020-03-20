@@ -1,0 +1,167 @@
+/*
+Name: Community Comments module
+Description: Styles for Community comments for Indraweb
+Author: devila
+Version: 0.1
+Last revision: 10:58 16/01/2013
+*/
+
+
+.commuDetComent{
+border-top-style: dotted;
+border-top-color: #DEDDDD;
+border-top-width: 2px; border-top-width: 0.13rem;
+padding-top: 16px; padding-top: 1rem;
+}        
+
+.commuDetComentTitulo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #333;
+margin: 0 0 2px 0; margin: 0 0 0.13rem 0;
+}
+
+.ms-socialCommentEdit {
+padding: 0 !important;
+}
+
+.ms-socialCommentInputBox, .ms-socialCommentInputBox:hover, .ms-socialCommentInputBox:focus{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #999;
+display: block;
+width: 100%;
+height: 125px; height: 7.81rem;
+padding: 7px; padding: 0.44rem;
+background: #F6F6F6 url('/_layouts/15/images/indraweb/commuDetFondoComent.png') right top no-repeat;
+resize: none;
+border-style: solid;
+border-color: #E5E5E5;
+border-width: 1px 0 0 1px; border-width: 0.07rem 0 0 0.07rem;
+outline: none;
+-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.ms-socialCommentLoading {
+text-align: right;
+margin: 0 0 8px 0; margin: 0 0 .5rem 0;
+}
+
+.ms-socialCommentLoading input[type="button"] {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 15px; font-size: 0.94rem;
+color: white;
+background: url('/_layouts/15/images/indraweb/commuDetBtnComentar.png') center no-repeat;
+width: 99px; width: 6.19rem;
+height: 27px; height: 1.69rem;
+border: 0;
+padding: 0;
+margin: 0;
+cursor: pointer;
+}
+
+.ms-socialCommentPaging:before, .ms-socialCommentPaging:after {
+content:"";
+display:table;
+}
+
+.ms-socialCommentPaging:after {
+clear:both;
+}
+
+.ms-socialCommentPaging {
+text-align: right;
+height: 13px; height: .81rem;
+*zoom:1;
+}
+
+.socialcomment-pagelink {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #ff1079 !important;
+text-decoration: none;
+cursor: pointer !important;
+}
+
+.socialcomment-pagelink:hover {
+text-decoration: none;
+}
+
+.ms-socialCommentPaging span {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #ccc;
+padding: 0 4px; padding: 0 .25rem;
+}
+
+.socialcomment-pagelink img {
+margin: 0 8px; margin: 0 .5rem;
+}
+
+.ms-socialCommentPaging {
+margin: 4px 0; margin: .25rem 0;
+}
+
+.ms-socialCommentItem {
+width: 600px; width: 37.5rem;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #666;
+border-bottom: 1px solid #e7e7e7; border-bottom: 0.07rem solid #e7e7e7;
+padding: 10px 0; padding: 0.63rem 0;
+}
+
+.ms-socialCommentItem a {
+color: #ff1079 !important;
+text-decoration: none;
+}
+
+.ms-socialCommentItem a:hover {
+text-decoration: none;
+}
+
+.socialcomment-image {
+width: 50px; width: 3.13rem;
+height: 50px; height: 3.13rem;
+padding-right: 4px; padding-right: .25rem;
+}
+
+.socialcomment-IMPawn {
+width: 12px; width: .75rem;
+padding-right: 2px; padding-right: .13rem;
+vertical-align: top;
+}
+
+.socialcomment-top {
+width: 459px; width: 28.69rem;
+}
+
+.socialcomment-time {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #999;
+}
+
+.socialcomment-top.socialcomment-cmdlink {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+width: 55px; width: 3.44rem;
+}
+
+.separator {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #ccc;
+padding: 0 4px; padding: 0 .25rem;
+}
+
+.commentLoadBlogs {
+background: #fff url(/_layouts/15/images/indraweb/loader.gif) center center no-repeat;
+opacity:.20;
+filter:alpha(opacity=20);
+}
+.loadingImagenDiv {
+height:0px;
+}

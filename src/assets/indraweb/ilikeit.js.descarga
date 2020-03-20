@@ -1,0 +1,67 @@
+﻿var _ILikeItPopup;
+
+function updateLikes(listId, itemId, popupUrl) {
+    var id = itemId;
+
+    if (id == null || id == -1) {
+        var canaryValue = document.getElementById('__REQUESTDIGEST').value;
+        var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/ilikeit.ashx";
+        jQuery.ajax({
+            url: urlAjax,
+            dataType: "json",
+            cache: false,
+            type: "post",
+            async: false,
+            beforeSend: function (request) {
+                request.setRequestHeader("X-RequestDigest", canaryValue);
+            },
+            success: function (data) {
+                if (data.toString().indexOf("Error") == -1) {
+                    id = parseInt(data);
+                    setLike(listId, id, popupUrl);
+                }
+            }
+        });
+    }
+    else {
+        var canaryValue = document.getElementById('__REQUESTDIGEST').value;
+        var urlAjax = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/iCore4SP/handlers/ilikeit.ashx?id=" + itemId + "&idList=" + listId;
+        jQuery.ajax({
+            url: urlAjax,
+            dataType: "json",
+            cache: false,
+            type: "get",
+            async: false,
+            beforeSend: function (request) {
+                request.setRequestHeader("X-RequestDigest", canaryValue);
+            },
+            success: function (data) {
+            }
+        });
+        setLike(listId, id, popupUrl);
+    }
+}
+
+function setLike(listId, itemId, popupUrl) {
+    EnsureScriptFunc('reputation.js', 'Microsoft.Office.Server.ReputationModel.Reputation', function () {
+        _ILikeItPopup = popupUrl;
+        var clientContext = new SP.ClientContext();
+        Microsoft.Office.Server.ReputationModel.Reputation.setLike(clientContext, listId, itemId, 'true');
+
+        clientContext.executeQueryAsync(
+            Function.createDelegate(this, this.onQuerySucceeded),
+            Function.createDelegate(this, this.onQueryFailed)
+        );
+    });
+}
+
+function onQuerySucceeded() {
+    $('#likeit').attr('class', 'is-clicked article__icons__group');
+    $('#likeit').attr('onclick', '');
+    SPModalDialog(_ILikeItPopup + "?msg=iLikeItOk", "Me gusta");
+}
+
+function onQueryFailed(sender, args) {
+    //alert('Request failed. ' + args.get_message() +
+    //    '\n' + args.get_stackTrace());
+}

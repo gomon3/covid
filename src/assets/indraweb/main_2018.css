@@ -1,0 +1,1319 @@
+/*
+Name: Main module
+Description: Styles for Indraweb main modules
+Author: devila
+Version: 0.2
+Last revision: 10:35 30/01/2013
+*/
+
+/*
+* {
+    -webkit-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    box-sizing:content-box;
+}
+*/
+
+.main {
+    background: white;
+    clear: both;
+    padding: 0;
+}
+
+.content {
+    padding: 10px 20px;
+}
+
+.distri {
+    padding: 24px 20px;
+}
+
+.red {
+    padding-right: 20px;
+    position: relative;
+}
+
+.mainBreadcrumbs {
+    margin: 0;
+    padding: 0;
+    height: 14px;
+    overflow: hidden;
+    font-size: 11px;
+    color: #ccc;
+}
+
+    .mainBreadcrumbs a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+        .mainBreadcrumbs a:hover {
+            text-decoration: none;
+        }
+
+.mainTools {
+    height: 18px;
+    margin: 7px;
+    padding: 0;
+    clear: left;
+    float: right;
+    list-style-type: none;
+    vertical-align: middle;
+}
+
+.content .mainTools {
+    margin-top: 21px;
+}
+
+.mainTools li.mainToolsLi {
+    margin: 3px 0;
+    padding: 0 8px;
+    height: 12px;
+    float: left;
+    border-left: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+.mainTools li:first-child {
+    border-left: none;
+}
+
+.mainTools li.mainToolsLi a {
+    margin-top: -6px;
+    display: block;
+    height: 22px;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #999;
+    background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+}
+
+    .mainTools li.mainToolsLi a.js-callout-closeButton {
+        background: none !important;
+    }
+
+
+.mainTools li a:hover {
+    text-decoration: none;
+    background-position: 0 top;
+}
+
+.mainTools li.mainToolsReadlater a {
+    width: 18px;
+    text-indent: -320px;
+    background-position: left top;
+}
+
+    .mainTools li.mainToolsReadlater a.is-clicked {
+        background-position: left -60px;
+    }
+
+.mainTools li.mainToolsShare a {
+    width: 18px;
+    text-indent: -320px;
+    background-position: -58px top;
+}
+
+    .mainTools li.mainToolsShare a.is-clicked {
+        background-position: -58px -60px;
+    }
+
+.mainTools li.mainToolsFavorite a {
+    width: 20px;
+    text-indent: -320px;
+    background-position: -120px top;
+}
+
+    .mainTools li.mainToolsFavorite a.is-clicked {
+        background-position: -120px -60px;
+    }
+
+.mainTools li.mainToolsLike a {
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: right;
+    background-position: -180px top;
+    padding-left: 20px;
+}
+
+    .mainTools li.mainToolsLike a.is-clicked {
+        background-position: -180px -60px;
+    }
+
+
+.mainTools li.mainToolsRSS a {
+    background: url('/_layouts/15/images/indraweb/rss.png') no-repeat;
+    background-position-y: 4px;
+    padding-left: 20px;
+}
+
+    .mainTools li.mainToolsRSS a.is-clicked {
+        background: url('/_layouts/15/images/indraweb/rss.png') no-repeat;
+        background-position-y: 4px;
+        pdding-left: 20px;
+    }
+
+
+/* Tools Small*/
+.mainTools.toolsSmall {
+    margin: 10px 0 0 0;
+    float: none;
+    height: 14px;
+    clear: none;
+}
+
+    .mainTools.toolsSmall li.mainToolsLi {
+        height: 8px;
+        margin: 0;
+    }
+
+        .mainTools.toolsSmall li.mainToolsLi:first-child {
+            padding-left: 0;
+        }
+
+        .mainTools.toolsSmall li.mainToolsLi a {
+            height: 16px;
+            background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #989898;
+            margin: -4px 0 0 0;
+        }
+
+            .mainTools.toolsSmall li.mainToolsLi a.js-callout-closeButton {
+                background: none !important;
+                width: 16px !important;
+                height: 16px !important;
+            }
+
+
+    .mainTools.toolsSmall li.mainToolsReadlater a {
+        width: 12px;
+        background-position: 0 -120px;
+    }
+
+        .mainTools.toolsSmall li.mainToolsReadlater a.is-clicked {
+            background-position: 0 -180px;
+        }
+
+    .mainTools.toolsSmall li.mainToolsShare a {
+        width: 10px;
+        background-position: -60px -120px;
+    }
+
+        .mainTools.toolsSmall li.mainToolsShare a.js-callout-closeButton {
+            width: 100%;
+        }
+
+        .mainTools.toolsSmall li.mainToolsShare a.is-clicked {
+            background-position: -60px -180px;
+        }
+
+    .mainTools.toolsSmall li.mainToolsComments a {
+        background-position: -240px -120px;
+        padding-left: 11px;
+        width: auto;
+    }
+
+        .mainTools.toolsSmall li.mainToolsComments a span {
+            padding-left: 5px;
+            background: #FFF;
+        }
+
+        .mainTools.toolsSmall li.mainToolsComments a.is-clicked {
+            background-position: -240px -180px;
+        }
+
+    .mainTools.toolsSmall li.mainToolsLike a {
+        background-position: -180px -120px;
+        padding-left: 10px;
+        width: auto;
+    }
+
+        .mainTools.toolsSmall li.mainToolsLike a span {
+            padding-left: 5px;
+            background: #FFF;
+        }
+
+        .mainTools.toolsSmall li.mainToolsLike a.is-clicked {
+            background-position: -180px -180px;
+        }
+
+    .mainTools.toolsSmall li.mainToolsRSS a {
+        background: url('/_layouts/15/images/indraweb/rss.png') no-repeat;
+    }
+
+        .mainTools.toolsSmall li.mainToolsRSS a span {
+            background: url('/_layouts/15/images/indraweb/rss.png') no-repeat;
+        }
+
+        .mainTools.toolsSmall li.mainToolsRSS a.is-clicked {
+            background: url('/_layouts/15/images/indraweb/rss.png') no-repeat;
+        }
+
+.mainTitle {
+    margin: 0 0 26px 0;
+    padding: 0;
+    max-width: 710px;
+    min-height: 66px;
+    clear: left;
+    font-size: 60px;
+    font-weight: 700;
+    color: #ccc;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.mainAside {
+    margin: 0 0 34px 0;
+    float: right;
+    width: 220px;
+}
+
+.mainMasvalTitulo {
+    border-top: 6px solid #909081;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-transform: lowercase;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.mainMasvalList {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.mainMasvalitem {
+    margin: 0;
+    padding: 6px 0;
+    border-top: 1px dotted #ccc;
+}
+
+    .mainMasvalitem:first-child {
+        border-top: none;
+    }
+
+a.mainMasvalLink {
+    color: #00A7C3;
+    text-decoration: none;
+}
+
+.mainMasvalLink:active {
+    text-decoration: none;
+}
+
+.likeInfo {
+    color: #999;
+    padding: 0 0 0 16px;
+    background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+    background-position: -237px 1px;
+}
+
+.mainAside .menu-banner {
+    margin: 0 0 20px 0;
+}
+
+/* Estilos menu SP2013 */
+.mainTreeMenu {
+    margin: 0 0 34px 0;
+    padding: 0;
+    float: left;
+    width: 220px;
+    clear: left;
+}
+
+    .mainTreeMenu ul.ms-core-listMenu-root {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #999;
+    }
+
+        .mainTreeMenu ul.ms-core-listMenu-root li {
+            margin: 0;
+            padding: 0;
+        }
+
+            .mainTreeMenu ul.ms-core-listMenu-root li a.ms-core-listMenu-item {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                color: #999;
+            }
+
+.mainTreeList, .mainTreeSublist1, .mainTreeSublist2 {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.mainTreeLevel0 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border-top-style: dotted;
+    border-top-color: #dedddd;
+    border-top-width: 1px;
+    padding: 4px 2px;
+}
+
+    .mainTreeLevel0:first-child {
+        border-top: none;
+    }
+
+    .mainTreeLevel0 > a {
+        color: #999;
+        text-decoration: none;
+        padding-right: 18px;
+        display: block;
+    }
+
+    .mainTreeLevel0.expandable > a {
+        background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+        background-position: -148px -237px;
+        -ms-background-position-x: -148px;
+        -ms-background-position-y: -237px;
+    }
+
+    .mainTreeLevel0.is-expanded > a {
+        color: #0098CA;
+        background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat; /*vpoblete nuevo para .expandable*/
+        background-position: -148px -296px;
+    }
+
+    .mainTreeLevel0.is-selected > a {
+        color: #0098CA;
+        background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+        background-position: -148px -417px;
+    }
+
+.mainTreeSublist1 {
+    margin: 7px 0 3px 0;
+    padding-left: 5px;
+}
+
+.mainTreeLevel1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 3px 0;
+}
+
+    .mainTreeLevel1 > a {
+        color: #474646;
+        text-decoration: none;
+    }
+
+    .mainTreeLevel1.expandable > a {
+        background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+        background-position: 0 -237px;
+    }
+
+    .mainTreeLevel1.is-selected > a {
+        color: #0098ca;
+    }
+
+    .mainTreeLevel1.is-expanded > a {
+        color: #0098ca;
+        background: url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat; /*vpoblete nuevo para .expandable*/
+        background-position: 0 -296px;
+    }
+
+.mainTreeSublist2 {
+    margin: 4px 0;
+    padding-left: 16px;
+}
+
+.mainTreeLevel2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #f6f6f6;
+    padding: 2px 12px;
+    margin-bottom: 1px;
+}
+
+    .mainTreeLevel2.is-selected {
+        background-color: #00a7cc;
+    }
+
+    .mainTreeLevel2 > a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .mainTreeLevel2.is-selected > a {
+        color: #fff;
+    }
+
+/* Fin de estilos menu SP2013 */
+
+.mainPpal {
+    width: 600px;
+}
+
+.mainPpalAncho {
+    width: 900px;
+}
+
+.mainAlignLeft {
+    margin: 26px 270px 24px 30px;
+}
+
+.mainAlignRight {
+    margin: 0px 30px 24px 46px;
+    float: left;
+}
+
+.mainCarruselTitulo {
+    margin: 0;
+    background: #ccc;
+    color: white;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+/* Estilos carrusel */
+
+.jcarousel-container {
+    width: 538px;
+    height: 110px;
+    margin: 0 0 24px 0;
+    padding: 0 31px;
+    overflow: hidden;
+}
+
+.jcarousel-clip {
+    overflow: hidden;
+}
+
+.jcarousel-clip-horizontal {
+    width: 538px;
+    height: 110px;
+}
+
+.jcarousel-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.jcarousel-item {
+    margin: 0;
+    padding: 22px;
+}
+
+.jcarousel-item-horizontal {
+    width: 136px;
+    height: 66px;
+    border-right: 1px dotted #ccc;
+}
+
+.jcarousel-item a {
+    color: #068db4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .jcarousel-item a:hover {
+        text-decoration: none;
+    }
+
+.jcarousel-prev-horizontal {
+    width: 30px;
+    height: 38px;
+    overflow: hidden;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    background: url('/_layouts/15/images/indraweb/carrusel-sprite.png') no-repeat;
+    background-position: left top;
+    cursor: pointer;
+}
+
+    .jcarousel-prev-disabled-horizontal, .jcarousel-prev-horizontal:active.jcarousel-prev-disabled-horizontal {
+        cursor: default;
+        background-position: left -38px;
+    }
+
+    .jcarousel-prev-horizontal:active {
+        background-position: left 1px;
+    }
+
+.jcarousel-next-horizontal {
+    width: 30px;
+    height: 38px;
+    overflow: hidden;
+    position: absolute;
+    top: 36px;
+    right: 1px;
+    background: url('/_layouts/15/images/indraweb/carrusel-sprite.png') no-repeat;
+    background-position: right top;
+    cursor: pointer;
+}
+
+    .jcarousel-next-disabled-horizontal, .jcarousel-next-horizontal:active.jcarousel-next-disabled-horizontal {
+        cursor: default;
+        background-position: right -38px;
+    }
+
+    .jcarousel-next-horizontal:active {
+        background-position: right 1px;
+    }
+
+/* Fin de estilos carrusel*/
+
+.morelink {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    overflow: hidden;
+    background: #0098ca url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+    text-indent: -160px;
+    background-position: -299px 1px;
+}
+
+    .morelink.less {
+        background-position: -299px -59px;
+    }
+
+.morecontent span {
+    display: none;
+}
+
+.mainBtnDiv {
+    display: inline-block;
+    background: #03657c;
+}
+
+.mainBtnDisabled {
+    filter: alpha(opacity=50);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+    -moz-opacity: .5;
+    opacity: .5;
+}
+
+
+.mainBtnBotonEnvioMail, button.mainBtnBotonEnvioMail, input[type="button"].mainBtnBotonEnvioMail, input[type="reset"].mainBtnBotonEnvioMail, input[type="submit"].mainBtnBotonEnvioMail {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 12px;
+    height: 31px;
+    min-width: 0;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    opacity: .5;
+    overflow: visible; /* IE7 */
+}
+
+    .mainBtnBotonEnvioMail[disabled], .mainBtnBotonEnvioMail:disabled, input[type="button"][disabled].mainBtnBotonEnvioMail, input[type="button"]:disabled.mainBtnBotonEnvioMail, input[type="reset"][disabled].mainBtnBotonEnvioMail, input[type="submit"][disabled].mainBtnBotonEnvioMail {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #fff;
+        border: none;
+        cursor: default;
+        filter: alpha(opacity=10);
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+        opacity: .9;
+        background-color: grey;
+    }
+
+
+.mainBtnBoton, .mainBtnBoton:hover .mainBtnBoton:hover, button.mainBtnBoton, button.mainBtnBoton:hover, button.mainBtnBoton:focus, input[type="button"].mainBtnBoton, input[type="button"].mainBtnBoton:hover, input[type="reset"].mainBtnBoton, input[type="reset"].mainBtnBoton:hover, input[type="submit"].mainBtnBoton, input[type="submit"].mainBtnBoton:hover {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 12px;
+    height: 31px;
+    min-width: 0;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: visible; /* IE7 */
+}
+
+    .mainBtnBoton[disabled], .mainBtnBoton:disabled, .mainBtnBoton[disabled]:hover, .mainBtnBoton:disabled:hover, input[type="button"][disabled].mainBtnBoton, input[type="button"]:disabled.mainBtnBoton, input[type="button"][disabled].mainBtnBoton:hover, input[type="button"]:disabled.mainBtnBoton:hover, input[type="reset"][disabled].mainBtnBoton, input[type="reset"][disabled].mainBtnBoton:hover, input[type="submit"][disabled].mainBtnBoton, input[type="submit"][disabled].mainBtnBoton:hover {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #fff;
+        cursor: default;
+        filter: alpha(opacity=50);
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+        -moz-opacity: .5;
+        opacity: .5;
+        background-color: grey;
+    }
+
+.mainAsideTitulo {
+    border-top: 6px solid #909081 !important;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-transform: lowercase;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.mainAsideEtiquetas {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0 0 22px 0;
+}
+
+    .mainAsideEtiquetas li {
+        display: inline;
+        padding: 0;
+        margin: 0 -1px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+    }
+
+        .mainAsideEtiquetas li a {
+            line-height: 1.4;
+            display: inline-block;
+            width: auto;
+            margin: 2px 0;
+            padding: 0 6px;
+            background-color: #f2f2f2;
+            max-width: 204px;
+            color: #00A7C3;
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+.mainAsideFrecuentes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+}
+
+    .mainAsideFrecuentes li {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin: 2px 0;
+        padding: 3px 0;
+        line-height: 24px;
+        border-top: 1px dotted #ccc;
+    }
+
+        .mainAsideFrecuentes li:first-child {
+            border-top: none;
+        }
+
+        .mainAsideFrecuentes li a {
+            color: #068db4;
+            text-decoration: none;
+        }
+
+.mainLosMas {
+    border-style: solid;
+    border-color: #ededed;
+    border-width: 2px;
+    margin-bottom: 23px;
+}
+
+.mainLosMasMenu {
+    list-style: none;
+    background-color: #ededed;
+    margin: 0;
+    padding: 0;
+    height: 27px;
+}
+
+    .mainLosMasMenu li {
+        float: left;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        color: #666;
+        line-height: 27px;
+        padding: 0 6px;
+        cursor: pointer;
+        background: url('/_layouts/15/images/indraweb/mainLosMasMenuSeparador.jpg') no-repeat;
+        background-position: left 4px;
+    }
+
+        .mainLosMasMenu li:first-child {
+            background: none;
+        }
+
+        .mainLosMasMenu li.active + li {
+            background: none;
+        }
+
+        .mainLosMasMenu li.active {
+            background-color: #fff;
+            cursor: default;
+        }
+
+.mainLosMasContenido {
+    padding: 13px 2px 13px 14px;
+}
+
+    .mainLosMasContenido > div.active {
+        display: block;
+    }
+
+.mainLosMasLista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainLosMasItem {
+    border-top-style: dotted;
+    border-top-color: #ccc;
+    border-top-width: 1px;
+    padding: 6px 0;
+}
+
+    .mainLosMasItem:first-child {
+        padding-top: 0;
+        border-top: none;
+    }
+
+.mainLosMasItemTitulo, .mainLosMasItemTitulo:hover, .mainLosMasItemTitulo:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #00A7C3;
+    text-decoration: none;
+    margin: 0;
+    line-height: 12px;
+}
+
+.mainLosMasItemDatos {
+    line-height: 13px;
+}
+
+.mainLosMasItemAutor, .mainLosMasItemAutor a, .mainLosMasItemAutor a:hover, .mainLosMasItemAutor a:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #666;
+    text-decoration: none;
+}
+
+.mainLosMasItemSeparador {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #ccc;
+}
+
+.mainLosMasItemDatos .likeInfo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #999;
+    background-position: -237px 2px;
+}
+
+.mainUltimosCom {
+    margin-bottom: 18px;
+    padding: 0 0 20px 0;
+    background: url('/_layouts/15/images/indraweb/herramientas-sprite-general.png') no-repeat;
+    background-position: 12px bottom;
+}
+
+.mainUltimosComLista {
+    background: #e9e9e9;
+    list-style: none;
+    margin: 0;
+    padding: 6px 14px;
+}
+
+.mainUltimosComItem {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #666;
+    background: url('/_layouts/15/images/indraweb/mainUltimosComItem.png') left 2px no-repeat;
+    padding-left: 24px;
+    margin: 12px 0;
+}
+
+    .mainUltimosComItem a, .mainUltimosComItem a:hover, .mainUltimosComItem a:visited {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #00A7C3;
+        text-decoration: none;
+    }
+
+.mainEventos {
+    margin-bottom: 22px;
+}
+
+.mainEventosLista {
+    list-style: none;
+    margin: -5px 0 4px 0;
+    padding: 0;
+}
+
+.mainEventosItem {
+    border-top-style: dotted;
+    border-top-color: #ccc;
+    border-top-width: 1px;
+    padding: 6px 0;
+}
+
+    .mainEventosItem:first-child {
+        border-top: none;
+    }
+
+.mainEventosItemFecha {
+    float: left;
+}
+
+.mainEventosItemFechaDia {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    color: #ccc;
+    margin: 0;
+    line-height: 29px;
+}
+
+.mainEventosItemFechaMes {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #adacac;
+    margin: 0;
+    text-align: center;
+    line-height: 8px;
+}
+
+.mainEventosItemContenido {
+    margin-left: 42px;
+}
+
+.mainEventosItemTitulo, .mainEventosItemTitulo:hover, .mainEventosItemTitulo:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ff1079;
+    text-decoration: none;
+    margin: 0;
+}
+
+.mainEventosItemTexto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #666;
+    margin: 2px 0 4px 0;
+}
+
+.mainEventosItemOutlook, .mainEventosItemOutlook:hover, .mainEventosItemOutlook:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #AAA;
+    padding: 0 5px;
+}
+
+.mainEventosVerTodos, .mainEventosVerTodos:hover, .mainEventosVerTodos:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ff1079;
+    text-decoration: none;
+    float: right;
+    margin-right: 3px;
+}
+
+.mainArchLabel {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #888;
+}
+
+input[type="text"].mainArchInputBuscar, input[type="text"].mainArchInputBuscar:hover, input[type="text"].mainArchInputBuscar:focus {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #888;
+    background-color: #f6f6f6;
+    width: 100%;
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 1px 0 0 1px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.mainArchDivDesde {
+    width: 107px;
+    margin-top: 2px;
+    float: left;
+}
+
+.mainArchDivHasta {
+    width: 107px;
+    margin-top: 2px;
+    float: right;
+}
+
+input[type="text"].mainArchInputFecha, input[type="text"].mainArchInputFecha:hover, input[type="text"].mainArchInputFecha:focus {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #888;
+    background-color: #f6f6f6;
+    width: 85px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 1px 0 0 1px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.mainArchImgCal {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.mainArchBtnBuscar {
+    float: right;
+    margin-top: 12px;
+}
+
+    .mainArchBtnBuscar .mainBtnBoton {
+        padding: 5px 27px;
+        background: transparent url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+        background-position: -269px -352px;
+        height: 27px;
+    }
+
+.mainSelect {
+    float: left;
+    width: 220px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333;
+    background-color: #F6F6F6;
+    border-style: solid;
+    border-color: #E5E5E5;
+    border-width: 1px;
+    border-bottom-color: #FFF;
+    border-right-color: #FFF;
+    height: 25px;
+}
+
+.mainCentral {
+    width: 788px;
+    margin-left: 124px;
+    padding-top: 14px;
+    padding-bottom: 50px;
+    min-height: 440px;
+}
+
+.mainAlignLeftMenu {
+    margin-right: 250px;
+}
+
+.mainCentral.mainAlignLeftMenu {
+    width: 540px;
+}
+
+.mainAsideMenu {
+    width: 85px;
+    background-color: #DDD;
+    position: absolute;
+    bottom: 0;
+    top: 6px;
+    left: 6px;
+}
+
+.mainCentral .mainTitle {
+    clear: none;
+}
+
+.adsMedia {
+    position: relative;
+    width: 100%;
+}
+
+.adsVideoSingle {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100px;
+    overflow: hidden;
+    text-indent: -1000px;
+    background: url('/_layouts/15/images/indraweb/cont-play-button-small.png') no-repeat;
+    background-position: right bottom;
+    z-index: 999;
+}
+
+.adsVideoDouble {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    text-indent: -1000px;
+    background: url('/_layouts/15/images/indraweb/cont-play-button.png') no-repeat;
+    background-position: right bottom;
+    z-index: 999;
+}
+
+.adsVideoFooter {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 120px;
+    overflow: hidden;
+    text-indent: -1000px;
+    background: url('/_layouts/15/images/indraweb/cont-play-button.png') no-repeat;
+    background-position: right bottom;
+    z-index: 999;
+}
+
+.placeholder {
+    color: #999 !important;
+}
+
+.divMoreCont {
+    font-size: 13px;
+    color: #666;
+}
+
+.divShowMore {
+    display: none;
+}
+
+.textLinkMore {
+    color: #666;
+    text-decoration: none;
+}
+
+    .textLinkMore:hover {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .textLinkMore:visited {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .textLinkMore .verMenosText {
+        display: none;
+    }
+/*SHAREPOINT STYLES*/
+
+#topReadedPosts {
+    display: none;
+}
+
+    #topReadedPosts.active {
+        display: block;
+    }
+
+#topComments {
+    display: none;
+}
+
+    #topComments.active {
+        display: block;
+    }
+
+.ms-webpartzone-cell {
+    margin: 0 0 0 0;
+}
+
+/*TABLAS*/
+.ms-rteTable-default, .ms-rteTable-default tbody tr th, .ms-rteTable-default tbody tr td {
+    border-style: none;
+    padding: 10px;
+}
+
+    .ms-rteTable-default tbody tr th {
+        font-weight: bold;
+    }
+
+    .ms-rteTable-default tbody tr td {
+        border-bottom: 1px dotted #CBCBCB;
+    }
+
+        .ms-rteTable-default tbody tr th.ms-rteTableHeaderOddCol-default, .ms-rteTable-default tbody tr td.ms-rteTableOddCol-default, .ms-rteTable-default tbody tr td.ms-rteTableFooterOddCol-default {
+            background-color: #FAFAFA;
+        }
+
+    .ms-rteTable-default tbody tr.ms-rteTableFooterRow-default td {
+        border-bottom: none;
+        border-top: solid 1px #939393;
+        font-weight: bold;
+    }
+
+.ui-effects-transfer {
+    border: 2px dotted #0098CA;
+}
+
+.hidden {
+    display: none;
+}
+
+.fancybox-skin {
+    background-color: none;
+}
+
+/*Estilos para bootstrap*/
+.popover-sm {
+    min-width: 250px;
+}
+
+    .popover-sm img {
+        max-width: 200px;
+    }
+
+.popover-md {
+    min-width: 400px;
+}
+
+    .popover-md img {
+        max-width: 350px;
+    }
+
+.popover-lg {
+    min-width: 700px;
+}
+
+.popover-xl {
+    min-width: 800px;
+}
+
+.popover-xxl {
+    min-width: 900px;
+}
+
+.popover-lg img {
+    max-width: 650px;
+}
+
+.popover-title {
+    text-align: right;
+    background-color: white;
+}
+
+.popover-black {
+    background-color: #333;
+}
+
+    .popover-black .popover-title {
+        background-color: #333;
+        border-bottom: none;
+    }
+
+    .popover-black .popover-content {
+        color: #eee;
+        font-size: 14px;
+        font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+        line-height: 1.4;
+    }
+
+    .popover-black.top > .arrow:after {
+        border-top-color: #333;
+    }
+
+    .popover-black.bottom > .arrow:after {
+        border-bottom-color: #333;
+    }
+
+    .popover-black.right > .arrow:after {
+        border-right-color: #333;
+    }
+
+    .popover-black.left > .arrow:after {
+        border-left-color: #333;
+    }
+
+    .popover-black .btn-link, .popover-black .btn-link:hover, .popover-black .btn-link:active {
+        color: #fff;
+    }
+
+    .popover-black .thumbnail {
+        background-color: transparent !important;
+    }
+
+.wizardPager .previous {
+    float: left;
+}
+
+.wizardPager .next {
+    float: left;
+}
+
+.wizardPager .finish, .wizardPager .end {
+    float: right;
+}
+
+.wizardPager.modal-footer {
+    padding: 8px 0px 0px 0px;
+}
+
+    .wizardPager.modal-footer button, .popover-title.wizard-title button {
+        font-size: 11px;
+    }
+
+.modal-black .modal-content {
+    background-color: #333;
+    color: #ccc;
+}
+
+.modal-black .modal-body h2 {
+    font-family: "Segoe UI Semilight","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    font-weight: normal;
+}
+
+.modal-black .modal-body p {
+    font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+}
+
+.modal-black .modal-footer {
+    border-top: none;
+    background-color: #444;
+}
+
+.main.content .wizardHelp {
+    height: 18px;
+    padding: 0;
+    clear: left;
+    float: right;
+    list-style-type: none;
+    vertical-align: middle;
+    margin-top: 17px;
+}
+
+.tool_images {
+    width: 48px;
+    height: 48px;
+}
+
+.dataTables_length .custom-select {
+    font-size: 1.2em !important;
+}

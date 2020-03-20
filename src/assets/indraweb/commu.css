@@ -1,0 +1,917 @@
+/*
+Name: Community module
+Description: Styles for Indraweb content community
+Author: vpoblete
+Version: 0.1
+Last revision: 12:00 17/12/2012
+*/
+
+.clear { clear: both; }
+.clearLeft { clear: left; }
+.clearRight { clear: right; }
+
+.commuEncabezado{
+margin: -10px 0 0 -15px; margin: -0.62rem 0 0 -0.94rem;
+position: relative;
+border-color: #FFF;
+border-style: solid;
+border-width: 5px 1px 0 1px; border-width: .32rem .07rem 0 .07rem;
+width: 931px; width: 58.18rem;
+height: 100px; height: 6.25rem;
+}
+
+/*.commuSpain {background-position: 432px -84px; background-position: 27rem -5.25rem;}
+.commuArgentina {background-position: 432px -250px;}
+.commuBrasil {background-position: 432px -200px;}
+.commuChile {background-position: 432px -250px;}
+.commuColombia {background-position: 432px -164px;}
+.commuItalia {background-position: 432px -84px;}
+.commuMexico {background-position: 432px -130px;}*/
+
+.commuEncabezadoTitulo{
+position: absolute;
+font-family: NeoSans-n3, NeoSans, Arial, Helvetica, sans-serif; /* Light */
+font-weight: 300;
+font-size: 60px; font-size: 3.75rem;
+color: #FFF;
+top: 0;
+left: 0;
+width: 892px; width: 55.75rem;
+height: 75px; height: 4.69rem;
+padding: 25px 0 0 39px; padding: 1.56rem 0 0 2.44rem;
+margin-top:0px;
+}
+
+/*.commuSpain .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -344px; background-position: 27rem -21.5rem;
+}
+
+.commuArgentina .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -470px;
+}
+
+.commuBrasil .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -580px;
+}
+
+.commuChile .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -690px;
+}
+
+.commuColombia .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -804px;
+}
+
+.commuItalia .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -914px;
+}
+
+.commuMexico .commuEncabezadoTitulo{
+background: url('/_layouts/15/images/indraweb/commu-head-sprite.png') no-repeat;
+background-position: 432px -1030px;
+}*/
+
+.commuEncabezadoEtiqueta{
+position: absolute;
+/*top: 53px; top: 3.31rem;
+right: 36px; right: 2.25rem;*/
+font-family: NeoSans-n4, NeoSans, Arial, Helvetica, sans-serif; /* Regular */
+font-weight: 400;
+font-size: 16px; font-size: 1rem;
+color: #FFF;
+top: -5px; top: -.31rem;
+right: 17px; right: 1.06rem;
+padding-top: 53px; padding-top: 3.31rem;
+width: 76px; width: 4.75rem;
+height: 37px; height: 2.31rem;
+text-align: center;
+}
+
+.commu .mainPpal{
+padding-top: 32px; padding-top: 2em;
+}
+
+.commuIniTresDestacados{
+margin-bottom: 32px; margin-bottom: 2rem;
+}
+
+.commuIniArticulo{
+}
+
+.commuIniTresDestacados .commuIniArticulo{
+width: 193px; width: 12.06rem;
+float: left;
+}
+
+.commuIniTresDestacados .commuIniDestacadoCentral{
+margin: 0 5px; margin: 0 0.31rem;
+padding: 0 5px 0 4px; padding: 0 0.31rem 0 0.25rem;
+border-style: dotted;
+border-color: #CBCBCB;
+border-width: 0 1px; border-width: 0 0.07rem;
+}
+
+.commuIniArticulo.commuIniArticuloNormal{
+clear: left;
+border-style: dotted;
+border-color: #CBCBCB;
+border-width: 1px 0 0 0; border-width: 0.07rem 0 0 0;
+padding-top: 10px; padding-top: 0.63rem;
+padding-bottom: 18px; padding-bottom: 1.13rem;
+}
+
+.commuIniArticulo.commuIniDestacadoGrande{
+padding-bottom: 22px; padding-bottom: 1.38rem;
+}
+
+.commuIniArticulo.commuIniArticuloNormal:after,
+.commuIniArticulo.commuIniDestacadoGrande:after{
+clear: both;
+}
+
+/*.commuIniImagen{
+position: relative;
+}
+
+.commuIniArticuloNormal .commuIniImagen,
+.commuIniDestacadoGrande .commuIniImagen{
+float: left;
+margin-bottom: 15px; margin-bottom: 0.94rem;
+}
+
+.commuIniImagen .commuIconoPlay{
+position: absolute;
+bottom: 2px; bottom: 0.13rem;
+right: 1px; right: 0.07rem;
+}*/
+
+.commuIniArticuloContenido{
+padding: 0 6px; padding: 0 0.38rem;
+}
+
+.commuIniTresDestacados .commuIniArticuloContenido{
+height: 181px; height: 181px;
+position: relative;
+padding: 8px 6px; padding: 0.5rem 0.38rem;
+}
+
+.commuIniDestContMargen{
+margin-left: 205px; margin-left: 12.82rem;
+}
+
+.commuIniDestacadoGrande .commuIniDestContMargen{
+margin-left: 306px; margin-left: 19.13rem;
+padding-top: 7px; padding-top: 0.44rem;
+}
+
+.commuIniTitulo, .commuIniTitulo:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px; font-size: 1rem;
+font-weight: normal;
+color: #333;
+margin-top: 0;
+margin-bottom: 13px; margin-bottom: 0.82rem;
+}
+
+.commuIniTresDestacados .commuIniTitulo, .commuIniTresDestacados .commuIniTitulo:visited{
+margin-bottom: 8px; margin-bottom: 0.5rem;
+}
+
+.commuIniDestacadoGrande .commuIniTitulo, .commuIniDestacadoGrande .commuIniTitulo:visited{
+font-size: 28px; font-size: 1.75rem;
+margin-bottom: 10px; margin-bottom: 0.63rem;
+}
+
+.commuIniTitulo a{
+color: #333;
+text-decoration: none;
+line-height: 20px; line-height: 1.25rem;
+}
+
+.commuIniDestacadoGrande .commuIniTitulo a{
+line-height: normal;
+}
+
+.commuDatos{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+border-style: dotted;
+border-color: #CBCBCB;
+border-width: 1px 0 ; border-width: 0.07rem 0;
+padding: 4px 0 3px 0; padding: 0.25rem 0 0.19rem 0;
+margin-bottom: 7px; margin-bottom: 0.44rem;
+}
+
+.commuDatosAutor{
+display: inline;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.commuDatosAutor li{
+display: inline;
+padding-left: 8px; padding-left: 0.5rem;
+margin-left: 2px; margin-left: 0.13rem;
+background: url('/_layouts/15/images/indraweb/commuDatosAutorSeparador.png') left center no-repeat;
+}
+
+.commuDatosAutor li:first-child {
+padding-left: 0;
+margin-left: 0;
+background: none;
+}
+
+.commuDatosAutor li a, .commuDatosAutor li a:hover, .commuDatosAutor li a:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #0098CA;
+text-decoration: none;
+}
+
+.commuDatosFecha{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #666;
+}
+
+.commuIniTresDestacados .commuDatosAutor{
+display: block;
+}
+
+.commuIniEntradilla, .commuIniEntradilla:hover, .commuIniEntradilla:visited,
+.commuIniEntradilla a, .commuIniEntradilla a:hover, .commuIniEntradilla a:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 13px; font-size: 0.82rem;
+color: #666;
+text-decoration: none;
+}
+
+.commuIniArticuloNormal .commuIniEntradilla{
+display: inline;
+}
+
+.commuIniEntradilla p{
+margin: 0 0 10px 0; margin: 0 0 0.63rem 0;
+display: inherit;
+}
+
+.commuIniTresDestacados .mainTools.toolsSmall{
+position: absolute;
+bottom: 0;
+}
+
+/*.commuIniDestacadoGrande .mainTools.toolsSmall{
+float: right;
+margin: 4px 0 0 0; margin: 0.25rem 0 0 0;
+}*/
+
+.commuDatos .mainTools.toolsSmall {
+margin: 4px 0 0 0;
+margin: 0.25rem 0 0 0;
+float: right;
+}
+
+.commuIniVerMasEnt, .commuIniVerMasEnt:hover, .commuIniVerMasEnt:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #0098CA;
+text-decoration: none;
+border-style: dotted;
+border-color: #CBCBCB;
+border-width: 1px 0 0 0; border-width: 0.07rem 0 0 0;
+display: block;
+padding-top: 3px; padding-top: 0.19rem;
+margin-top: 14px; margin-top: 0.88rem;
+}
+
+
+/*** Detalle { ***/
+.commuEncabezado .mainBreadcrumbs{
+position: absolute;
+top: 8px; top: .5rem;
+left: 16px; left: 1rem;
+color: #FFF;
+z-index: 999;
+}
+
+.commuEncabezado .mainBreadcrumbs a{
+color: #FFF;
+text-decoration: none;
+}
+
+.commuDetTitulo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 28px; font-size: 1.75rem;
+/*font-weight: normal;*/
+color: #333;
+}
+
+.commuDetEntradilla{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px; font-size: 1rem;
+color: #363636;
+margin: 15px 0 11px 0; margin: 0.94rem 0 0.69rem 0;
+}
+
+.commuDet .commuDatos{
+margin-bottom: 11px; margin-bottom: 0.69rem;
+}
+
+/*.commuDetImagen{
+position: relative;
+}
+
+.commuDetImagen .commuIconoPlay{
+position: absolute;
+bottom: 24px; bottom: 1.50rem;
+right: 28px; right: 1.75rem;
+}*/
+
+.commuDetTexto{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #666;
+margin: 12px 0 0 0; margin: 0.75rem 0 0 0;
+}
+
+.commuDetEtiquetas{
+margin-top: 17px;
+}
+
+.commuDetEtiquetasTitulo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px; font-size: 0.88rem;
+color: #666;
+}
+
+.commuDetEtiquetasLista{
+display: inline;
+list-style: none;
+margin: 0 0 0 4px; margin: 0 0 0 0.25rem;
+padding: 0;
+}
+
+.commuDetEtiquetasLista li{
+display: inline;
+}
+
+.commuDetEtiquetasSeparador{
+padding-right: 8px; padding-right: 0.5rem;
+padding-left: 4px; padding-left: 0.25rem;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px; font-size: 0.88rem;
+color: #999;
+}
+
+.commuDetEtiquetasEnlace, .commuDetEtiquetasEnlace:hover, .commuDetEtiquetasEnlace:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px; font-size: 0.88rem;
+color: #0098CA;
+text-decoration: none;
+}
+
+.commuDetRecursos{
+margin-top: 19px; margin-top: 1.19rem;
+}
+.commuDetRecursosTitulo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 13px; font-size: 0.82rem;
+font-weight: bold;
+color: #666;
+background-color: #F0F0F0;
+padding: 7px 9px; padding: 0.44rem 0.56rem;
+margin: 0;
+}
+
+.commuDetRecursosLista{
+list-style: none;
+padding: 0;
+margin: 12px 0 15px 0; margin: 0.75rem 0 0.94rem 0;
+}
+
+.commuDetRecursosLista li{
+margin-top: 6px; margin-top: 0.38rem;
+}
+
+.commuDetRecursosEnlace, .commuDetRecursosEnlace:hover, .commuDetRecursosEnlace:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #5F98C9;
+font-weight: bold;
+text-decoration: none;
+}
+
+.commuDetRecursosEnlaceInfo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #989898;
+}
+
+.commuDetComent{
+border-top-style: dotted;
+border-top-color: #DEDDDD;
+border-top-width: 2px; border-top-width: 0.13rem;
+padding-top: 16px; padding-top: 1rem;
+}        
+
+.commuDetComentTitulo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #333;
+margin: 0 0 2px 0; margin: 0 0 0.13rem 0;
+}
+
+.commuDetComentAreaEscritura, .commuDetComentAreaEscritura:hover, .commuDetComentAreaEscritura:focus, .commuDetComentAreaRespuesta{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #999;
+display: block;
+width: 100%;
+height: 125px; height: 7.81rem;
+padding: 7px; padding: 0.44rem;
+background: #F6F6F6 url('/_layouts/15/images/indraweb/commuDetFondoComent.png') right top no-repeat;
+resize: none;
+border-style: solid;
+border-color: #E5E5E5;
+border-width: 1px 0 0 1px; border-width: 0.07rem 0 0 0.07rem;
+outline: none;
+
+-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.commuDetComentAreaRespuesta {
+    display:none;
+}
+
+
+
+.commuDetBtnComentar {
+float: right;
+margin: 8px 0 0 0; margin: 0.5rem 0 0 0;
+background: #DB1079 url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+background-position: 0 -480px; background-position: 0 -30rem;
+background: -moz-linear-gradient(top, #f099c6 0%, #e34496 50%, #db1079 50%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f099c6), color-stop(50%,#e34496), color-stop(50%,#db1079));
+background: -webkit-linear-gradient(top, #f099c6 0%,#e34496 50%,#db1079 50%);
+background: -o-linear-gradient(top, #f099c6 0%,#e34496 50%,#db1079 50%);
+background: -ms-linear-gradient(top, #f099c6 0%,#e34496 50%,#db1079 50%);
+background: linear-gradient(to bottom, #f099c6 0%,#e34496 50%,#db1079 50%);
+}
+
+.capita {
+    display:table;width:100%;
+}
+.commuDetBtnRespuesta {
+    display:none;
+    float: right;
+    margin: 8px 0 0 0; margin: 0.5rem 0 0 0;
+    background: #DB1079 url('/_layouts/15/images/indraweb/main-sprite.png') no-repeat;
+    background-position: 0 -480px; background-position: 0 -30rem;
+    background: -moz-linear-gradient(top, #f099c6 0%, #e34496 50%, #db1079 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f099c6), color-stop(50%,#e34496), color-stop(50%,#db1079));
+    background: -webkit-linear-gradient(top, #f099c6 0%,#e34496 50%,#db1079 50%);
+    background: -o-linear-gradient(top, #f099c6 0%,#e34496 50%,#db1079 50%);
+    background: -ms-linear-gradient(top, #f099c6 0%,#e34496 50%,#db1079 50%);
+    background: linear-gradient(to bottom, #f099c6 0%,#e34496 50%,#db1079 50%);
+}
+
+.commuDetBtnComentar .mainBtnBoton{
+padding: 5px 18px !important; padding: .31rem 1.13rem !important;
+}
+
+.commuDetComentDatos{
+margin-top: 42px; margin-top: 2.63rem;
+}
+
+.commuDetComentNumeroCom{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #363636;
+}
+
+.commuDetComentDatosSeparador{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #CBCBCB;
+}
+
+.commuDetComentPagina{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #535659;
+}
+
+.commuDetComentPag{
+float: right;
+padding-top: 6px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+}
+
+.commuDetComentPagNumero, .commuDetComentPagNumero:hover, .commuDetComentPagNumero:visited{
+font-weight: bold;
+color: #FF1079;
+text-decoration: none;
+margin: 0 4px; margin: 0 0.25rem;
+}
+
+.commuDetComentPagNumero.active{
+color: #152631;
+}
+
+.commuDetComentPagTexto, .commuDetComentPagTexto:hover, .commuDetComentPagTexto:visited{
+color: #FF1079;
+text-decoration: none;
+}
+
+.commuDetComentPagTexto.disabled{
+color: #989898;
+}
+
+.commuDetComentPagIcoAnt, .commuDetComentPagIcoSig{
+background: url('/_layouts/15/images/indraweb/commu-sprite.png') no-repeat;
+display: inline-block;
+width: 6px; width: 0.38rem;
+height: 9px; height: 0.56rem;
+vertical-align: -1px; vertical-align: -0.06rem;
+margin: 0 4px 0 4px; margin: 0 0.25rem 0 0.25rem;
+}
+
+.commuDetComentPagIcoAnt.disabled{background-position: -27px -26px; background-position: -1.69rem -1.63rem;}
+.commuDetComentPagIcoAnt{background-position: -27px -86px; background-position: -1.69rem -5.38rem;}
+.commuDetComentPagIcoSig.disabled{background-position: -27px -146px; background-position: -1.69rem -9.13rem;}
+.commuDetComentPagIcoSig{background-position: -27px -206px; background-position: -1.69rem -12.88rem;}
+
+.commuDetComentPagSeparador{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #CBCBCB;
+}
+
+.commuDetComentLista{
+margin-top: 4px; margin-top: 0.25rem;
+margin-bottom: 8px; margin-bottom: 0.5rem;
+}
+
+.commuDetComentComentario{
+border-top: 1px solid #E7E7E7; border-top: 0.07rem solid #E7E7E7;
+padding: 10px 0; padding: 0.63rem 0;
+}
+
+/* Quita el borde inferior de los comentarios anidados. */
+.commuDetComentComentario .commuDetComentComentario{
+border-bottom: none;
+margin-top: 13px; margin-top: 0.81rem;
+padding-bottom: 2px; padding-bottom: 0.13rem;
+}
+
+.commuDetComentFoto{
+float: left;
+}
+
+.commuDetComentFoto img {
+    width:50px;
+}
+
+.commuDetComentContenido{
+margin-left: 62px; margin-left: 3.88rem;
+}
+
+.commuDetComentNombre, .commuDetComentNombre:hover, .commuDetComentNombre:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #FF1079;
+text-decoration: none;
+}
+
+.commuDetComentTexto{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #666666;
+margin: 5px 0 0 0; margin: 0.31rem 0 0 0;
+}
+
+.commuDetComentHace{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #989898;
+}
+
+.commuDetComentLink, .commuDetComentLink:hover, .commuDetComentLink:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #FF1079;
+text-decoration: none;
+}
+
+.commuDetComentSeparador{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: 0.69rem;
+color: #CCCCCC;
+margin: 0 2px; margin: 0 0.13rem;
+}
+
+.commuDetTambienLeer{
+margin-top: 44px; margin-top: 2.75rem;
+}
+
+.commuDetTambienLeerTitulo{
+font-family: NeoSans-n7, NeoSans, Arial, Helvetica, sans-serif; /* Bold */
+font-weight: 700;
+font-size: 18px; font-size: 1.13rem;
+color: #333333;
+margin: 0;
+}
+
+.commuDetCarrusel{
+height: 143px; height: 8.94rem;
+margin-top: 15px; margin-top: 0.94rem;
+}
+
+.commuDetCarrusel .jcarousel-clip-horizontal{
+height: 143px; height: 8.94rem;
+}
+
+.commuDetCarrusel .jcarousel-item{
+background: url('/_layouts/15/images/indraweb/commuDetFondoComilla.png') 10px top no-repeat;
+padding: 36px 12px 0 22px; padding: 2.25rem 0.75rem 0 1.38rem;
+width: 147px; width: 9.19rem;
+height: 107px; height: 6.69rem;
+}
+
+.commuDetCarrusel .jcarousel-item a, .commuDetCarrusel .jcarousel-item a:hover, .commuDetCarrusel .jcarousel-item a:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px; font-size: 1rem;
+font-weight: bold;
+color: #5f98c9;
+text-decoration: none;
+line-height: 19px; line-height: 1.19rem;
+}
+
+.commuDetCarrusel .jcarousel-prev-horizontal,
+.commuDetCarrusel .jcarousel-next-horizontal{
+top: 46px; top: 2.88rem;
+}
+/*** } Detalle ***/
+
+
+
+.commuMedia {
+position: relative;
+min-height: 112px;
+}
+
+.commuVideoSmall {
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 193px; width: 12.06rem;
+height: 108px; height: 6.75rem;
+overflow: hidden;
+text-indent: -1000px;
+background: url('/_layouts/15/images/indraweb/commuBtnPlay.png') no-repeat;
+background-position: right bottom;
+z-index: 8;
+}
+
+.commuImgSmall{
+}
+
+.commuVideoMedium {
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 290px; width: 18.13rem;
+height: 163px; height: 10.19rem;
+overflow: hidden;
+text-indent: -1000px;
+background: url('/_layouts/15/images/indraweb/commuBtnPlay.png') no-repeat;
+background-position: right bottom;
+z-index: 999;
+}
+
+.commuImgMedium{
+}
+
+.commuVideoBig {
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 600px; width: 37.5rem;
+height: 337px; height: 21.06rem;
+overflow: hidden;
+text-indent: -1000px;
+background: url('/_layouts/15/images/indraweb/cont-play-button.png') no-repeat;
+background-position: right bottom;
+z-index: 999;
+}
+
+.commuImgBig{
+}
+
+.commuIniArticuloNormal .commuMedia,
+.commuIniDestacadoGrande .commuMedia{
+float: left;
+margin-bottom: 15px; margin-bottom: 0.94rem;
+}
+
+
+/***************************/
+/* COMMUNITIES > EVENTOS { */
+/***************************/
+.commuEven .mainPpal{
+position: relative;
+}
+
+.commuEvenTituloFecha{
+position: absolute;
+top: 1px; top: .07rem;
+left: 0;
+text-align: center;
+background-color: #CCC;
+color: #FFF;
+display: inline-block;
+width: 43px; width: 2.69rem;
+height: 86px; height: 5.38rem;
+}
+
+.commuEvenTituloFechaDia{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 31px; font-size: 1.94rem;
+margin: 38px 0 0 0; margin: 2.38rem 0 0 0;
+line-height: 23px; line-height: 1.44rem;
+}
+
+.commuEvenTituloFechaMes{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px; font-size: .69rem;
+margin: 0;
+}
+
+.commuEvenEncabezado{
+margin-left: 60px; margin-left: 3.75rem;
+}
+
+.commuEvenTitulo{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 28px; font-size: 1.75rem;
+color: #333;
+}
+
+.commuEvenHoraLugar{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px; font-size: 1rem;
+color: #333;
+margin: 4px 0; margin: .25rem 0;
+}
+
+.commuEvenBtnOutlook{
+float: right;
+margin-top: 8px; margin-top: .5rem;
+}
+
+.commuEvenBtnOutlook .mainBtnBoton{
+background: transparent url('/_layouts/15/images/indraweb/commu-sprite.png') no-repeat;
+background-position: 124px -497px; background-position: 7.75rem -31.06rem;
+height: 27px; height: 1.69rem;
+width: 172px; width: 10.75rem;
+padding: 0 14px 0 0; padding: 0 .88rem 0 0;
+}
+
+.commuEven .commuDatos{
+width: 420px; width: 26.25rem;
+margin: 14px 0 50px 0; margin: .88rem 0 3.13rem 0;
+}
+
+.commuEvenTexto{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; font-size: 0.75rem;
+color: #666;
+}
+
+.commuEvenOtrosEven{
+font-family: NeoSans-n7, NeoSans, Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 18px; font-size: 1.13rem;
+color: #333;
+margin: 16px 0 2px 0; margin: 1rem 0 .13rem 0;
+padding-top: 24px; padding-top: 1.5rem;
+border-top-style: dotted;
+border-top-color: #DDD;
+border-top-width: 1px; border-width: .07rem;
+}
+
+.commuEvenOtrosMes{
+margin-bottom: 7px; margin-bottom: .44rem;
+}
+
+.commuEvenOtrosMesAnt,
+.commuEvenOtrosMesSig{
+display: inline-block;
+width: 9px; width: .56rem;
+height: 16px; height: 1rem;
+background: url("/_layouts/15/images/indraweb/commu-sprite.png") no-repeat;
+}
+
+.commuEvenOtrosMesAnt{background-position: -26px -322px; background-position: -1.63rem -20.13rem;}
+.commuEvenOtrosMesAnt.disabled{background-position: -26px -262px; background-position: -1.63rem -16.38rem;}
+.commuEvenOtrosMesSig{background-position: -26px -442px; background-position: -1.63rem -27.63rem;}
+.commuEvenOtrosMesSig.disabled{background-position: -26px -382px; background-position: -1.63rem -23.88rem;}
+
+.commuEvenOtrosMesTexto{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #333;
+vertical-align: 2px; vertical-align: .13rem;
+}
+
+.commuEven .mainEventosLista{
+margin: 0;
+}
+
+.commuEven .mainEventosItem{
+padding: 10px 0; padding: .63rem 0;
+}
+
+.commuEvenVerMas, .commuEvenVerMas:hover, .commuEvenVerMas:visited{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; font-size: 1.13rem;
+color: #0098CA;
+text-decoration: none;
+border-style: dotted;
+border-color: #CBCBCB;
+border-width: 1px 0 0 0; border-width: 0.07rem 0 0 0;
+display: block;
+padding-top: 3px; padding-top: 0.19rem;
+}
+/***************************/
+/* } COMMUNITIES > EVENTOS */
+/***************************/
+div.loadingCommunity {
+    display:none;
+    text-align:center;
+}
+
+
+.contRel{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px; font-size: 0.82rem;
+    font-weight: bold;
+    color: #666;
+    background-color: #F0F0F0;
+    padding: 7px 9px; padding: 0.44rem 0.56rem;
+    margin: 0;
+}
+
+    .contRelList{
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 15px 0; margin: 0.75rem 0 0.94rem 0;
+        border-bottom-style: dotted;
+        border-bottom-color: #DEDDDD;
+        border-bottom-width: 1px;
+        padding-bottom: 16px; padding-bottom: 1rem;
+    }
+    
+        .contRelList li{
+            margin-top: 6px; margin-top: 0.38rem;
+        }
+    
+        .contRelEnlace, .contRelEnlace:hover, .contRelEnlace:visited{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px; font-size: 0.75rem;
+            color: #5F98C9;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .contRelEnlaceInfo{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px; font-size: 0.75rem;
+            color: #989898;
+        }
+
+.contTitulo {
+    margin: 0;
+    padding: 0;
+    font-size: 30px; font-size: 1.88rem;
+    color: #333;
+    font-weight: bold;
+}
+
+#silverlightControlHost {
+	height: 337px;
+	width: 600px;
+}

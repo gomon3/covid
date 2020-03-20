@@ -1,0 +1,213 @@
+/*
+Name: Footer module
+Description: Styles for Indraweb footer
+Author: devila
+Version: 0.1
+Last revision: 13:33 31/10/2012
+*/
+
+#footer {
+margin: 0;
+padding: 0;
+}
+
+#footer-quicklinks {
+background: #999;
+padding: 22px 16px; padding: 1.38rem 1rem;
+font-size: 12px; font-size: .75rem;
+}
+
+.footer-quicklinks-title {
+margin: 0 16px 0 0; margin: 0 1rem 0 0;
+font-family: NeoSans-n4, NeoSans, Arial, Helvetica, sans-serif;
+font-size: 26px; font-size: 1.63rem;
+font-weight: 400;
+color: white;
+text-decoration: underline;
+float: left;
+}
+
+#footer-quicklinks-list1 {
+width: 130px; width: 8.125rem;
+}
+
+#footer-quicklinks-list2 {
+width: 90px; width: 5.625rem;
+}
+
+#footer-quicklinks-list3{
+width: 90px; width: 5.625rem;
+}
+
+.quicklinks-column {
+margin: 8px 0 0 18px; margin: .5rem 0 0 1.13rem;
+padding: 0;
+float: left;
+list-style-type: none;
+}
+
+.quicklinks-column li {
+margin: 0 0 8px 0; margin: 0 0 .5rem 0;
+}
+
+.quicklinks-column a {
+color: #e3e0e0;
+}
+
+.quicklinks-column a:hover {
+text-decoration: none;
+}
+
+.footer-banner {
+float: right;
+border: none;
+width: 400px; width: 25rem;
+height: 120px; height: 7.5rem;
+}
+
+#footer-stockticker {
+margin: 1px 0 0 0;
+padding: 3px 12px 0 12px; padding: .19rem .75rem 0 .75rem;
+height: 19px; height: 1.19rem;
+overflow: hidden;
+background: #4d4d4d;
+color: #ccc;
+font-size: 11px; font-size: .69rem;
+list-style-type: none;
+}
+
+#footer-stockticker li {
+float: left;
+vertical-align: middle;
+height: 16px; height: 1rem;
+overflow: hidden;
+padding: 0 4px; padding: 0 .25rem;
+line-height: 1.5;
+}
+
+.footer-stockticker-market {
+color: white;
+}
+
+.footer-stockticker-update {
+color: #fcb03f;
+}
+
+.footer-stockticker-percent {
+border-left: 1px solid #7f7d7d;
+margin-right: 12px; margin-right: .75rem;
+}
+
+#footer-stockticker li.subiendo {
+padding-right: 16px; padding-right: 1rem;
+background: url('/_layouts/15/images/indraweb/footer-stockticker-arrows.png') no-repeat;
+background-position: right 5px; background-position: right .31rem;
+}
+
+#footer-stockticker li.bajando {
+padding-right: 16px; padding-right: 1rem;
+background: url('/_layouts/15/images/indraweb/footer-stockticker-arrows.png') no-repeat;
+background-position: right -11px; background-position: right -.69rem;
+}
+
+#footer-legalinfo {
+margin: 0;
+padding: 8px 4px 0 4px; padding: .5rem .25rem 0 .25rem;
+background: url('/_layouts/15/images/indraweb/footer-logo.png') right top no-repeat;
+color: #999;
+font-size: 11px; font-size: .69rem;
+}
+
+#footer-copyright {
+margin: 12px 0 0 0; margin: .75rem 0 0 0;
+padding: 0;
+list-style-type: none;
+float: left;
+font-size:13px;
+}
+
+#footer-copyright li {
+float: left;
+padding: 0 7px; padding: 0 .44rem;
+border-left: 1px solid #999;
+}
+
+#footer-copyright li:first-child {
+border-left: none;
+}
+
+#footer-copyright a {
+color: #999;
+}
+
+#footer-copyright a:hover {
+text-decoration: none;
+}
+
+#footer-socialicons {
+margin: 12px 0 0 12px; margin: .75rem 0 0 .75rem;
+padding: 0;
+list-style-type: none;
+float: left;
+}
+
+#footer-socialicons li {
+float: left;
+padding: 0 7px; padding: 0 .44rem;
+border-left: 1px solid #c8c8c8;
+}
+
+#footer-socialicons li:first-child {
+border-left: none;
+}
+
+#footer-socialicons a {
+display: block;
+width: 16px; width: 1rem;
+height: 16px; height: 1rem;
+overflow: hidden;
+text-indent: -5000px;
+}
+
+.instagram {
+background: url('/_layouts/15/images/indraweb/footer-socialicons.png') no-repeat;
+background-position: left top;
+}
+
+.twitter {
+background: url('/_layouts/15/images/indraweb/footer-socialicons.png') no-repeat;
+background-position: -16px top; background-position: -1rem top;
+}
+
+.facebook {
+background: url('/_layouts/15/images/indraweb/footer-socialicons.png') no-repeat;
+background-position: -32px top; background-position: -2rem top;
+}
+
+.xing {
+background: url('/_layouts/15/images/indraweb/footer-socialicons.png') no-repeat;
+background-position: -48 top; background-position: -3rem top;
+}
+
+.linkedin {
+background: url('/_layouts/15/images/indraweb/footer-socialicons.png') no-repeat;
+background-position: -64 top; background-position: -4rem top;
+-ms-background-position-x: -64px;
+-ms-background-position-y: --4px;
+}
+
+.youtube {
+background: url('/_layouts/15/images/indraweb/youtube.png') no-repeat;
+}
+
+.footer-legalinfo-logo {
+display: block;
+float: right;
+padding: 0;
+margin: 0 8px 0 0; margin: 0 .5rem 0 0;
+width: 108px; width: 6.75rem;
+height: 36px; height: 2.25rem;
+overflow: hidden;
+text-indent: -5000px;
+}
+

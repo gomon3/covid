@@ -1,0 +1,334 @@
+var redirecUrlGlobal;
+var ajaxCache = false;
+
+function SPModalDialog(targetUrl, dialogTitle, width, height) {
+    var options = SP.UI.$create_DialogOptions();
+    options.autoSize = true;
+    options.title = dialogTitle;
+    options.url = targetUrl;
+
+    if (width != null)
+        options.width = width;
+    if (height != null)
+        options.height = height;
+
+    SP.UI.ModalDialog.showModalDialog(options);
+
+    return false;
+}
+
+function SPModalDialog(targetUrl, dialogTitle, width, height, close) {
+    var options = SP.UI.$create_DialogOptions();
+    options.autoSize = true;
+    options.title = dialogTitle;
+    options.url = targetUrl;
+    options.showClose = close;
+
+    if (width != null)
+        options.width = width;
+    if (height != null)
+        options.height = height;
+
+    SP.UI.ModalDialog.showModalDialog(options);
+
+    return false;
+}
+
+function SPModalDialogReloadParent(redirecUrl, targetUrl, dialogTitle, width, height) {
+    var options = SP.UI.$create_DialogOptions();
+
+    redirecUrlGlobal = redirecUrl;
+
+    options.autoSize = true;
+    options.title = dialogTitle;
+    options.url = targetUrl;
+    options.dialogReturnValueCallback = onCloseCallback;
+
+    if (width != null)
+        options.width = width;
+    if (height != null)
+        options.height = height;
+    SP.UI.ModalDialog.showModalDialog(options);
+}
+
+function onCloseCallback() {
+    if (redirecUrlGlobal == null || redirecUrlGlobal === '')
+        window.location.href = window.location.href;
+    else
+        window.location.href = redirecUrlGlobal;
+}
+function closeModalWindowReload() {
+    window.commonModalDialogClose(true);
+    window.location.href = window.location.href;
+}
+
+function EndsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+function getURLParam(name) {
+    if (window.location.href.indexOf('?') != -1) {
+        var url = window.location.href;
+        var query_string = url.split("?");
+        var params = query_string[1].split("&");
+        var i = 0;
+        while (i < params.length) {
+            var param_item = params[i].split("=");
+            if (param_item[0] == name) {
+                return decodeURI(param_item[1]);
+            }
+            i++;
+        }
+    }
+    return "";
+}
+
+function getTransformFileSize(size) {
+    var salida = 0;
+    var formato = " b";
+    if (!isNaN(size)) {
+        if (size > 1024) {
+            salida = size / 1024;
+            formato = " Kb";
+        }
+        else {
+            salida = size;
+        }
+
+    }
+    if (salida > 1024) {
+        salida = salida / 1024;
+        formato = " Mb";
+    }
+    return parseInt(salida) + formato;
+}
+
+function getUserPresence(id, uName, uEmail, uPicUrl, uSip, uSize) {
+    uPicUrl = uPicUrl.replace("SThumb", "LThumb");
+    EnsureScriptFunc("clienttemplates.js", "RenderUserFieldWorker", function () {
+        uSize = "72px";
+        var renderCtx = new ContextInfo();
+        renderCtx.Templates = {};
+        renderCtx.Templates["Fields"] = {};
+        var fieldSchemaData = { "PictureOnly": "1", "PictureSize": "Size_" + uSize };
+        var listSchema = { "EffectivePresenceEnabled": "1", "PresenceAlt": "pepe" };
+        var userData = { "title": uName, "email": uEmail, "picture": uPicUrl, "sip": uSip };
+        var personaControlElement = document.getElementById(id);
+        if ($.browser != null && $.browser.version != null && $.browser.version != "7.0" && $.browser.version != "8.0") {
+
+            personaControlElement.innerHTML = RenderUserFieldWorker(renderCtx, fieldSchemaData, userData, listSchema);
+        }
+        else {
+            personaControlElement.innerHTML = "<img src='" + uPicUrl + "'></img>";
+        }
+        //if(typeof(ctx.EnqueueImnRequest) == "undefined") { ctx.EnqueueImnRequest = false; }
+        //if (ctx.EnqueueImnRequest == false) {
+        //    ctx.ClientControl.add_oneTimeResultRendered(function () { if (typeof (ProcessImn) != "undefined") { ProcessImn(); } });
+        //    ctx.EnqueueImnRequest = true;
+
+        //}
+    });
+}
+
+function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+}
+function createGuid() {
+    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+}
+
+function ReplaceAllText(text, search, newstring) {
+    while (text.toString().indexOf(search) != -1)
+        text = text.toString().replace(search, newstring);
+    return text;
+
+}
+function ArrayContainsValue(array, value) {
+    if (!array.indexOf) {
+        for (var i = 0 ; i < array.length; i++) {
+            if (array[i] == value) {
+                return true;
+                break;
+            }
+        }
+    }
+    else {
+        if (array.indexOf(value) != -1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function CreateCookie(name, value) {
+    var expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function ReadCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function CancelProfessionalNetworkChanges() {
+    CreateCookie('ChangesCanceled', 'yes');
+    window.commonModalDialogClose(false);
+}
+
+function ChangePostTexts() {
+    //texto post
+    if (jQuery('#postCommunity') != null) {
+        var postText = jQuery('#postCommunity').val();
+        jQuery('.ms-socialCommentEdit .ms-socialCommentLoading input').val(postText)
+    }
+
+    //previous y next
+    if (jQuery('.ms-socialCommentPaging a').length > 0) {
+        jQuery('.ms-socialCommentPaging a').each(function () {
+            var siguiente = jQuery(this).next();
+            if (jQuery(siguiente).is("span")) {
+                if (jQuery('#previousPage') != null) {
+                    var previous = jQuery('#previousPage').val();
+                    jQuery(this).text(previous);
+                }
+            }
+            var previous = jQuery(this).prev();
+            if (jQuery(previous).is("span")) {
+                if (jQuery('#nextPage') != null) {
+                    var next = jQuery('#nextPage').val();
+                    jQuery(this).text(next);
+                }
+            }
+        });
+    }
+
+    //quitar textos en ingles
+    if (jQuery('.ms-socialCommentContents div div').length > 0) {
+        jQuery('.ms-socialCommentContents div div').each(function () {
+            var parent = jQuery(this).parent();
+            var parentparent = jQuery(parent).parent();
+            if (jQuery(parentparent).hasClass('ms-socialCommentContents') && jQuery(parent).attr('class') == null) {
+                if (jQuery(this).find('table').length == 0) {
+                    jQuery(this).hide();
+                }
+            }
+
+        });
+    }
+
+    //cambiar editar y borrar de cada post
+    if (jQuery('.socialcomment-cmdlink a') != null && jQuery('.socialcomment-cmdlink a').length > 0) {
+        jQuery('.socialcomment-cmdlink a').each(function () {
+            var siguiente = jQuery(this).next();
+            if (jQuery(siguiente).hasClass('separator')) {
+                if (jQuery('#editPost') != null) {
+                    var edit = jQuery('#editPost').val();
+                    jQuery(this).text(edit);
+                }
+            }
+            var previous = jQuery(this).prev();
+            if (jQuery(previous).hasClass('separator')) {
+                if (jQuery('#deletePost') != null) {
+                    var deletePost = jQuery('#deletePost').val();
+                    jQuery(this).text(deletePost);
+                }
+            }
+        });
+    }
+}
+
+function BreadcrumbsUpdate() {
+    var navMenu = jQuery("#navmenu");
+    var idSubmenu = "";
+
+    jQuery(".mainBreadcrumbs").find('span').each(function () {
+        var currentSpan = jQuery(this);
+        var spanLink = jQuery(this).find("a");
+        var spanLinkText = jQuery(spanLink).text().toLowerCase();
+
+        if (spanLink.html() != null) {
+            var li = jQuery(navMenu).find("li").filter(function (index) {
+                return jQuery(this).find("a").text().toLowerCase() == jQuery(spanLink).text().toLowerCase();
+            });
+
+            if (li.html() != null) {
+                idSubmenu = jQuery(li).find("a").attr("id");
+                jQuery(currentSpan).addClass("hidden");
+                jQuery(currentSpan).next().addClass("hidden");
+            }
+            else {
+                var submenu = null;
+
+                if (idSubmenu != "") {
+                    idSubmenu = "sub" + idSubmenu;
+
+                    submenu = jQuery("#" + idSubmenu);
+
+                    idSubmenu = "";
+                }
+                else {
+                    submenu = jQuery(".submenu");
+                }
+
+                jQuery(submenu).each(function () {
+                    jQuery(this).find("div").each(function () {
+                        jQuery(this).find("ul li:first-child").each(function () {
+                            var a = jQuery(this).find("a");
+                            if (jQuery(a).text().toLowerCase() == spanLinkText) {
+                                jQuery(spanLink).attr("href", jQuery(a).attr("href"));
+                            }
+                        });
+                    });
+                });
+            }
+        }
+    });
+}
+
+function getIEVersion() {
+    var myNav = navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+}
+
+String.format = function () {
+    // The string containing the format items (e.g. "{0}")
+    // will and always has to be the first argument.
+    var theString = arguments[0];
+
+    // start with the second argument (i = 1)
+    for (var i = 1; i < arguments.length; i++) {
+        // "gm" = RegEx options for Global search (more than one instance)
+        // and for Multiline search
+        var regEx = new RegExp("\\{" + (i - 1) + "\\}", "gm");
+        theString = theString.replace(regEx, arguments[i]);
+    }
+
+    return theString;
+}
+
+function getPresence(index, userName, email, navigateURL) {
+    var newIndex = index + Math.random();
+    var html = '<span class="ms-verticalAlignTop ms-noWrap ms-displayInlineBlock">';
+    html += '<span class="ms-imnSpan"><a href="#" onclick="IMNImageOnClick(event);return false;" class="ms-imnlink ms-spimn-presenceLink">';
+    html += '<span class="ms-spimn-presenceWrapper ms-imnImg ms-spimn-imgSize-10x10"><img onload="IMNRC(\'' + email + '\')" name="imnmark" title="" showofflinepawn="1" class="ms-spimn-img ms-spimn-presence-online-10x10x32" src="/_layouts/15/images/spimn.png" alt="Available" sip="' + email + '" id="imn_' + newIndex + ',type=sip"> ';
+    html += '</span> ';
+    html += '</a> ';
+    html += '</span> ';
+    html += '<span class="ms-noWrap ms-imnSpan"><a href="#" onclick="IMNImageOnClick(event);return false;" class="ms-imnlink" tabindex="-1"> ';
+
+    newIndex = newIndex + Math.random();
+
+    html += '<img onload="IMNRC(\'' + email + '\')" name="imnmark" title="" showofflinepawn="1" class=" ms-hide" src="/_layouts/15/images/spimn.png" alt="Available" sip="' + email + '" id="imn_' + newIndex + ',type=sip"></a> ';
+    html += '<a class="ms-subtleLink" href="' + navigateURL + '" target="_blank">' + userName + '</a> ';
+    html += '</span> ';
+    html += '</span>';
+
+    return html;
+
+}

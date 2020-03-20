@@ -1,0 +1,3 @@
+﻿var _currentContext;
+var _bookmarkListTitle = "Bookmarks";
+var _favoriteListTitle = "Favorites";
