@@ -20,11 +20,14 @@
                         <section id="block-menu-menu-sala-de-prensa" class="block block-menu clearfix">
                             <nav class="navbar">
                                 <ul class="navbar-wrapper">
-                                    <li class="first leaf active-trail example"><a href="#" title="">¿Qué es el nuevo
+                                    <li class="first leaf active-trail example"><a href="javascript:void(0)" title=""
+                                            (click)="whatIsIt()">¿Qué es el nuevo
                                             coronavirus SARS-CoV-2?</a></li>
-                                    <li class="leaf example"><a href="#" title="">¿Cuáles son los síntomas del
+                                    <li class="leaf example"><a href="javascript:void(0)" title=""
+                                            (click)="symptom()">¿Cuáles son los síntomas del
                                             COVID-19?</a></li>
-                                    <li class="leaf example"><a href="#" title="">¿Cómo se transmite el
+                                    <li class="leaf example"><a href="javascript:void(0)" title=""
+                                            (click)="transmission()">¿Cómo se transmite el
                                             nuevo coronavirus?</a></li>
                                     <li class="collapsed example"><a href="#">¿Cuáles son los grupos vulnerables?
 
@@ -44,7 +47,7 @@
                             <div class="new-date-country">Julio 2020 <a href="#">México</a>
                             </div>
                         </section>
-                        <section id="block-system-main" class="block block-system clearfix">
+                        <section *ngIf="options[0]" id="block-system-main" class="block block-system clearfix">
                             <article id="node-78623" class="node node-noticia clearfix"
                                 about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
                                 typeof="sioc:Item foaf:Document">
@@ -78,6 +81,105 @@
                                         de respuesta a las preguntas más frecuentes sobre este asunto, basadas en la
                                         información publicada y actualizada por la Organización Mundial de la Salud y en
                                         las comunicaciones de Indra..&nbsp;</p>
+
+                                    <p>&nbsp;&nbsp; &nbsp;<br>
+                                        &nbsp;</p>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section *ngIf="options[1]" id="block-system-main" class="block block-system clearfix">
+                            <article id="node-78623" class="node node-noticia clearfix"
+                                about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                typeof="sioc:Item foaf:Document">
+
+                                <div class="field field-name-field-entradilla field-type-text-long field-label-hidden">
+
+                                    <p><strong>CUESTIONES GENERALES SOBRE COVID-19</strong></p>
+                                </div>
+
+                                <div
+                                    class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground">
+                                    <p class="article-text">Los coronavirus son una amplia familia de virus que
+                                        normalmente afectan sólo a animales. Algunos tienen la capacidad de transmitirse
+                                        de los animales a las personas.&nbsp;</p>
+
+                                    <p class="article-text">El nuevo coronavirus SARS-CoV-2 es un nuevo tipo de
+                                        coronavirus que puede afectar a las personas y se ha detectado por primera vez
+                                        en diciembre de 2019 en la ciudad de Wuhan, provincia de Hubei, en China.&nbsp;
+                                    </p>
+
+                                    <p>&nbsp;&nbsp; &nbsp;<br>
+                                        &nbsp;</p>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section *ngIf="options[2]" id="block-system-main" class="block block-system clearfix">
+                            <article id="node-78623" class="node node-noticia clearfix"
+                                about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                typeof="sioc:Item foaf:Document">
+
+                                <div class="field field-name-field-entradilla field-type-text-long field-label-hidden">
+                                    <p><strong>LOS SÍNTOMAS</strong></p>
+
+
+                                    <ul>
+                                        <li class="blue-text">Los síntomas más comunes incluyen fiebre, tos, y sensación
+                                            de falta de aire.&nbsp;</li>
+                                        <li class="blue-text">En algunos casos también puede haber síntomas digestivos
+                                            como diarrea y dolor abdominal.&nbsp;</li>
+                                        <li class="blue-text">La mayoría de los casos presentan síntomas leves.&nbsp;
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div
+                                    class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground">
+                                    <p class="article-text">En casos más graves, la infección puede causar neumonía,
+                                        dificultad importante para respirar, fallo renal e incluso la muerte.&nbsp;</p>
+
+                                    <p class="article-text">Los casos más graves generalmente ocurren en personas de
+                                        edad avanzada o que padecen alguna enfermedad crónica, como enfermedades del
+                                        corazón, del pulmón o inmunodeficiencias.&nbsp;
+                                    </p>
+
+                                    <p>&nbsp;&nbsp; &nbsp;<br>
+                                        &nbsp;</p>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section *ngIf="options[3]" id="block-system-main" class="block block-system clearfix">
+                            <article id="node-78623" class="node node-noticia clearfix"
+                                about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                typeof="sioc:Item foaf:Document">
+
+                                <div class="field field-name-field-entradilla field-type-text-long field-label-hidden">
+                                    <p><strong>¿Cómo se transmite el
+                                            nuevo coronavirus?</strong></p>
+
+                                </div>
+
+                                <div
+                                    class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground">
+                                    <p class="article-text">Parece que la transmisión es por contacto estrecho con las
+                                        secreciones respiratorias que se generan con la tos, el contacto físico o el
+                                        estornudo de una persona enferma. Su contagiosidad depende de la cantidad del
+                                        virus en las vías respiratorias.&nbsp;</p>
+
+                                    <p class="article-text">Estas secreciones infectarían a otra persona si entran en
+                                        contacto con su nariz, sus ojos o su boca. Parece poco probable la transmisión
+                                        por el aire a distancias mayores de uno o dos metros. Con el conocimiento
+                                        actual, las personas que no presentan síntomas no transmiten la
+                                        enfermedad.&nbsp;
+                                    </p>
+
+                                    <br>
+                                    <div class="img-padding">
+                                        <img src="assets/images/greeting.png" class="img-fluid" width="50%" height="50%">
+                                    </div>
 
                                     <p>&nbsp;&nbsp; &nbsp;<br>
                                         &nbsp;</p>
