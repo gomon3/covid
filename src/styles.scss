@@ -1,16 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
-@import './assets/indraweb/corev15';
-@import './assets/indraweb/vendor_2018.min';
-@import './assets/indraweb/indraweb_2018.min';
-@import './assets/indraweb/distri';
-@import './assets/indraweb/commu';
-@import './assets/indraweb/comments';
-@import './assets/indraweb/jquery.ui.autocomplete';
-@import './assets/indraweb/base_2018';
-@import './assets/indraweb/header_2018';
-@import './assets/indraweb/menu_2018';
-@import './assets/indraweb/main_2018';
-@import './assets/indraweb/footer_2018';
-@import './assets/indraweb/red_2018';
-@import './assets/indraweb/search_2018';
-@import './assets/indraweb/retouch_2018';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@font-face {
+  font-family: "NeoSans";
+  src: url("./assets/fonts/Neo-Sans-Pro-Medium/Neo-Sans-Pro-Medium.ttf");
+}
+
+body {
+  font-family: "NeoSans";
+  font-weight: 500;
+  font-style: normal;
+}
+
+h4,
+h5,
+h5 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+.header {
+  position: relative;
+  z-index: 6;
+  padding: 12px 0 10px;
+  transition: background-color 0.3s;
+  background-color: #004254;
+}
+
+.region-sidebar-first .block-menu .navbar ul li {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  margin-left: 0px;
+  padding: 5px 0px;
+  clear: both;
+}
+
+.new-date-country {
+  background: #efefef;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+section {
+  display: block;
+}
+
+.main-container.container ul li {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+.article-text{
+  padding: 2%;
+  color: white;
+}
+
+.indra-ground {
+  background-color: #004254;
+}
+
+.blue-text {
+  color: #729fcf;
+}
