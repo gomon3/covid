@@ -2,12 +2,12 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 @font-face {
-  font-family: "NeoSans";
-  src: url("./assets/fonts/Neo-Sans-Pro-Medium/Neo-Sans-Pro-Medium.ttf");
+  font-family: "LiberationSans";
+  src: url("./assets/fonts/liberation_sans/LiberationSans-Regular.ttf");
 }
 
 body {
-  font-family: "NeoSans";
+  font-family: "LiberationSans";
   font-weight: 500;
   font-style: normal;
 }
@@ -62,9 +62,13 @@ section {
   margin-left: 20px;
 }
 
-.article-text{
+.article-text {
   padding: 2%;
   color: white;
+}
+
+.text-padding {
+  padding: 2%;
 }
 
 .indra-ground {
@@ -72,9 +76,17 @@ section {
 }
 
 .img-padding {
-  padding: 3%;
+  padding-top: 2%;
 }
 
 .blue-text {
-  color: #729fcf;
+  color: #3465a4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
 }
