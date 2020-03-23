@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  private options: Array<boolean> = [true, false, false, false, false, false, false, false];
+  private options: Array<boolean> = [true, false, false, false, false, false, false, false, false];
 
   constructor() { }
 
@@ -52,6 +52,11 @@ export class HomeComponent implements OnInit {
   mask() {
     this.desactiveShows();
     this.options[7] = true;
+  }
+
+  haveSymptoms() {
+    this.desactiveShows();
+    this.options[8] = true;
   }
 
 }
