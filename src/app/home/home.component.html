@@ -8,7 +8,10 @@
 
         <div class="no-color">
             <div class="page-header-wrapper">
-                <h1 class="page-header container">
+                <div>
+                    <img src="assets/images/image001.png" class="img-fluid" width="100%" height="100%">
+                </div>
+                <h1 class="page-header container text-center">
                     Actualización de preguntas más frecuentes sobre el <br>COVID-19
                 </h1>
             </div>
@@ -19,7 +22,16 @@
                     <div class="region region-sidebar-first">
                         <section id="block-menu-menu-sala-de-prensa" class="block block-menu clearfix">
                             <nav class="navbar">
-                                <div id="indra-rect"></div>
+                                <ul class="navbar-wrapper">
+                                    <li class="first leaf active-trail example"><a href="javascript:void(0)" title=""
+                                            (click)="outstandingNews()">Noticias destacadas</a></li>
+                                    <li class="leaf example"><a href="javascript:void(0)" title="" (click)="covid()">El
+                                            coronavirus</a></li>
+                                    <li class="leaf example"><a href="javascript:void(0)" title=""
+                                            (click)="statistics()">Estadísticas</a></li>
+                                    <li class="collapsed example"><a href="javascript:void(0)"
+                                            (click)="otherActions()">Otraz acciones</a></li>
+                                </ul>
                             </nav>
                         </section>
                     </div>
@@ -32,419 +44,443 @@
                             <div class="new-date-country">Julio 2020 <a href="#">México</a>
                             </div>
                         </section>
-                        <accordion [isAnimated]="true">
-                            <accordion-group heading="Indra | Nuevo Coronavirus SARS-CoV-2" [isOpen]="true">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
+                        <div *ngIf="options[1]">
+                            <accordion [isAnimated]="true">
+                                <accordion-group heading="Indra | Nuevo Coronavirus SARS-CoV-2" [isOpen]="true">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
 
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden">
-                                            <ul>
-                                                <li class="blue-text">Con una actualización permanente, Indra informa de
-                                                    las medidas tomadas para aplicar un modelo de máxima precaución y
-                                                    minimizar riesgos relacionados con el coronavirus COVID-19, dado que
-                                                    para Indra preservar la seguridad de sus profesionales es una
-                                                    prioridad.&nbsp;</li>
-                                                <li class="blue-text">En esta línea, encontrarás a continuación una
-                                                    actualización de respuesta a las preguntas más frecuentes sobre este
-                                                    asunto, basadas en la información publicada y actualizada por la
-                                                    Organización Mundial de la Salud y en las comunicaciones de
-                                                    Indra.</li>
-                                            </ul>
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden">
 
-                                            <p>Te recordamos que puedes resolver cualquier duda adicional a través de
-                                                IndraWeb
-                                                en el micrositio de <strong>*COVID19 Información actualizada*</strong>
-                                            </p>
-                                        </div>
-
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
-                                            <p class="article-text">Con una actualización permanente, Indra informa de
-                                                las
-                                                medidas tomadas para aplicar un modelo de máxima precaución y minimizar
-                                                riesgos
-                                                relacionados con el coronavirus COVID-19, dado que para Indra preservar
-                                                la
-                                                seguridad de sus profesionales es una prioridad.&nbsp;</p>
-
-                                            <p class="article-text">En esta línea, encontrarás a continuación una
-                                                actualización
-                                                de respuesta a las preguntas más frecuentes sobre este asunto, basadas
-                                                en la
-                                                información publicada y actualizada por la Organización Mundial de la
-                                                Salud y en
-                                                las comunicaciones de Indra.&nbsp;</p>
-
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Qué es el nuevo coronavirus SARS-CoV-2?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Qué es el nuevo coronavirus SARS-CoV-2?</strong></p>
-                                        </div>
-                                        <p>CUESTIONES GENERALES SOBRE COVID-19</p>
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
-
-                                            <p class="article-text">Los coronavirus son una amplia familia de virus que
-                                                normalmente afectan sólo a animales. Algunos tienen la capacidad de
-                                                transmitirse
-                                                de los animales a las personas.&nbsp;</p>
-
-                                            <p class="article-text">El nuevo coronavirus SARS-CoV-2 es un nuevo tipo de
-                                                coronavirus que puede afectar a las personas y se ha detectado por
-                                                primera vez
-                                                en diciembre de 2019 en la ciudad de Wuhan, provincia de Hubei, en
-                                                China.&nbsp;
-                                            </p>
-
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Cuáles son los síntomas del COVID-19?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Cuáles son los síntomas del COVID-19?</strong></p>
-                                        </div>
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden">
-                                            <p>LOS SÍNTOMAS</p>
-
-
-                                            <ul>
-                                                <li class="blue-text">Los síntomas más comunes incluyen fiebre, tos, y
-                                                    sensación
-                                                    de falta de aire.&nbsp;</li>
-                                                <li class="blue-text">En algunos casos también puede haber síntomas
-                                                    digestivos
-                                                    como diarrea y dolor abdominal.&nbsp;</li>
-                                                <li class="blue-text">La mayoría de los casos presentan síntomas
-                                                    leves.&nbsp;
-                                                </li>
-                                            </ul>
-
-                                        </div>
-
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
-                                            <p class="article-text">En casos más graves, la infección puede causar
-                                                neumonía,
-                                                dificultad importante para respirar, fallo renal e incluso la
-                                                muerte.&nbsp;</p>
-
-                                            <p class="article-text">Los casos más graves generalmente ocurren en
-                                                personas de
-                                                edad avanzada o que padecen alguna enfermedad crónica, como enfermedades
-                                                del
-                                                corazón, del pulmón o inmunodeficiencias.&nbsp;
-                                            </p>
-
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Cómo se transmite el
-                            nuevo coronavirus?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Cómo se transmite el
-                                                    nuevo coronavirus?</strong></p>
-
-                                        </div>
-
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground row">
-                                            <div class="text-center col-md-4 img-padding">
-                                                <img src="assets/images/greeting.png" class="img-fluid">
+                                                <p>Te recordamos que puedes resolver cualquier duda adicional a través
+                                                    de
+                                                    IndraWeb
+                                                    en el micrositio de <strong>*COVID19 Información
+                                                        actualizada*</strong>
+                                                </p>
                                             </div>
-                                            <div class="col-md-6 text-justify">
-                                                <p class="article-text">Parece que la transmisión es por contacto
-                                                    estrecho con
+
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
+                                                <p class="article-text">Con una actualización permanente, Indra informa
+                                                    de
                                                     las
-                                                    secreciones respiratorias que se generan con la tos, el contacto
-                                                    físico o el
-                                                    estornudo de una persona enferma. Su contagiosidad depende de la
-                                                    cantidad
+                                                    medidas tomadas para aplicar un modelo de máxima precaución y
+                                                    minimizar
+                                                    riesgos
+                                                    relacionados con el coronavirus COVID-19, dado que para Indra
+                                                    preservar
+                                                    la
+                                                    seguridad de sus profesionales es una prioridad.&nbsp;</p>
+
+                                                <p class="article-text">En esta línea, encontrarás a continuación una
+                                                    actualización
+                                                    de respuesta a las preguntas más frecuentes sobre este asunto,
+                                                    basadas
+                                                    en la
+                                                    información publicada y actualizada por la Organización Mundial de
+                                                    la
+                                                    Salud y en
+                                                    las comunicaciones de Indra.&nbsp;</p>
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Qué es el nuevo coronavirus SARS-CoV-2?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Qué es el nuevo coronavirus SARS-CoV-2?</strong></p>
+                                            </div>
+                                            <p>CUESTIONES GENERALES SOBRE COVID-19</p>
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
+
+                                                <p class="article-text">Los coronavirus son una amplia familia de virus
+                                                    que
+                                                    normalmente afectan sólo a animales. Algunos tienen la capacidad de
+                                                    transmitirse
+                                                    de los animales a las personas.&nbsp;</p>
+
+                                                <p class="article-text">El nuevo coronavirus SARS-CoV-2 es un nuevo tipo
+                                                    de
+                                                    coronavirus que puede afectar a las personas y se ha detectado por
+                                                    primera vez
+                                                    en diciembre de 2019 en la ciudad de Wuhan, provincia de Hubei, en
+                                                    China.&nbsp;
+                                                </p>
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Cuáles son los síntomas del COVID-19?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Cuáles son los síntomas del COVID-19?</strong></p>
+                                            </div>
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden">
+                                                <p>LOS SÍNTOMAS</p>
+
+
+                                                <ul>
+                                                    <li class="blue-text">Los síntomas más comunes incluyen fiebre, tos,
+                                                        y
+                                                        sensación
+                                                        de falta de aire.&nbsp;</li>
+                                                    <li class="blue-text">En algunos casos también puede haber síntomas
+                                                        digestivos
+                                                        como diarrea y dolor abdominal.&nbsp;</li>
+                                                    <li class="blue-text">La mayoría de los casos presentan síntomas
+                                                        leves.&nbsp;
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
+                                                <p class="article-text">En casos más graves, la infección puede causar
+                                                    neumonía,
+                                                    dificultad importante para respirar, fallo renal e incluso la
+                                                    muerte.&nbsp;</p>
+
+                                                <p class="article-text">Los casos más graves generalmente ocurren en
+                                                    personas de
+                                                    edad avanzada o que padecen alguna enfermedad crónica, como
+                                                    enfermedades
                                                     del
-                                                    virus en las vías respiratorias.&nbsp;</p>
-
-                                                <p class="article-text">Estas secreciones infectarían a otra persona si
-                                                    entran
-                                                    en
-                                                    contacto con su nariz, sus ojos o su boca. Parece poco probable la
-                                                    transmisión
-                                                    por el aire a distancias mayores de uno o dos metros. Con el
-                                                    conocimiento
-                                                    actual, las personas que no presentan síntomas no transmiten la
-                                                    enfermedad.&nbsp;
+                                                    corazón, del pulmón o inmunodeficiencias.&nbsp;
                                                 </p>
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Cómo se transmite el
+                                nuevo coronavirus?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Cómo se transmite el
+                                                        nuevo coronavirus?</strong></p>
+
                                             </div>
 
-
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-
-                            <accordion-group heading="¿Cuáles son los grupos vulnerables?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Cuáles son los grupos vulnerables?</strong></p>
-
-                                        </div>
-
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
-                                            <p class="article-text">Los principales grupos vulnerables son los mayores
-                                                de 60
-                                                años, hipertensión arterial, diabetes, enfermedades cardiovasculares,
-                                                enfermedades pulmonares
-                                                crónicas, cáncer, inmunodeficiencias, y el embarazo por el principio de
-                                                precaución.&nbsp;</p>
-
-
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Existe un tratamiento para el COVID-19?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Existe un tratamiento para el COVID-19?</strong></p>
-
-                                        </div>
-
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
-                                            <p class="article-text">No existe un tratamiento específico, pero se están
-                                                empleando
-                                                algunos antivirales que han demostrado cierta eficacia en estudios
-                                                recientes. Sí
-                                                existen muchos tratamientos para el control de sus síntomas por lo que
-                                                la
-                                                asistencia sanitaria mejora el pronóstico.&nbsp;</p>
-                                            <p class="article-text">Al ser una infección producida por virus, los
-                                                antibióticos
-                                                no deben ser usados como un medio de prevención o tratamiento.</p>
-
-
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Qué puedo hacer para protegerme?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Qué puedo hacer para protegerme?</strong></p>
-
-                                        </div>
-
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden row">
-                                            <p>Las medidas genéricas de protección individual frente a enfermedades
-                                                respiratorias incluyen:</p>
-                                            <div class="col-md-3 blue-text">
-                                                <div class="text-center">
-                                                    <img id="img-indra" src="assets/images/med_icon.png"
-                                                        class="img-fluid">
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground row">
+                                                <div class="text-center col-md-4 img-padding">
+                                                    <img src="assets/images/greeting.png" class="img-fluid">
                                                 </div>
-                                                <div class="text-center">
-                                                    <strong>Higiene</strong>
+                                                <div class="col-md-6 text-justify">
+                                                    <p class="article-text">Parece que la transmisión es por contacto
+                                                        estrecho con
+                                                        las
+                                                        secreciones respiratorias que se generan con la tos, el contacto
+                                                        físico o el
+                                                        estornudo de una persona enferma. Su contagiosidad depende de la
+                                                        cantidad
+                                                        del
+                                                        virus en las vías respiratorias.&nbsp;</p>
+
+                                                    <p class="article-text">Estas secreciones infectarían a otra persona
+                                                        si
+                                                        entran
+                                                        en
+                                                        contacto con su nariz, sus ojos o su boca. Parece poco probable
+                                                        la
+                                                        transmisión
+                                                        por el aire a distancias mayores de uno o dos metros. Con el
+                                                        conocimiento
+                                                        actual, las personas que no presentan síntomas no transmiten la
+                                                        enfermedad.&nbsp;
+                                                    </p>
                                                 </div>
-                                                <p>
-                                                    Higiene de manos frecuente (lavado con agua y jabón o soluciones
-                                                    alcohólicas), especialmente después de contacto directo con personas
-                                                    enfermas o su entorno.
-                                                </p>
+
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
                                             </div>
-                                            <div class="col-md-3 blue-text">
-                                                <div class="text-center">
-                                                    <img id="img-indra" src="assets/images/key_icon.png"
-                                                        class="img-fluid">
-                                                </div>
-                                                <div class="text-center">
-                                                    <strong>Medidas</strong>
-                                                </div>
-                                                <p>
-                                                    Al toser o estornudar, cubrirse la boca y la nariz con el codo
-                                                    flexionado.
-                                                    Usar pañuelos desechables, y tirarlos tras su uso.
-                                                </p>
-                                            </div>
-                                            <div class="col-md-3 blue-text">
-                                                <div class="text-center">
-                                                    <img id="img-indra" src="assets/images/person_icon.png"
-                                                        class="img-fluid">
-                                                </div>
-                                                <div class="text-center">
-                                                    <strong>Síntomas</strong>
-                                                </div>
-                                                <p>
-                                                    Si se presentan síntomas respiratorios, evitar el contacto cercano
-                                                    (manteniendo una distancia de un metro aproximadamente) con otras
-                                                    personas.
-                                                </p>
-                                            </div>
-                                            <div class="col-md-3 blue-text">
-                                                <div class="text-center">
-                                                    <img id="img-indra" src="assets/images/greting_icon.png"
-                                                        class="img-fluid">
-                                                </div>
-                                                <div class="text-center">
-                                                    <strong>Evita</strong>
-                                                </div>
-                                                <p>
-                                                    Evitar tocarse los ojos, la nariz y la boca, ya que las manos
-                                                    facilitan la
-                                                    transmisión.
-                                                </p>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+
+                                <accordion-group heading="¿Cuáles son los grupos vulnerables?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Cuáles son los grupos vulnerables?</strong></p>
+
                                             </div>
 
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Debo utilizar mascarillas para protegerme?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Debo utilizar mascarillas para protegerme?</strong></p>
-                                        </div>
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
+                                                <p class="article-text">Los principales grupos vulnerables son los
+                                                    mayores
+                                                    de 60
+                                                    años, hipertensión arterial, diabetes, enfermedades
+                                                    cardiovasculares,
+                                                    enfermedades pulmonares
+                                                    crónicas, cáncer, inmunodeficiencias, y el embarazo por el principio
+                                                    de
+                                                    precaución.&nbsp;</p>
 
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden row">
-                                            <div class="col-md-8 blue-text">
-                                                <p class="text-padding">La población general sana no necesita utilizar
-                                                    mascarillas. Las mascarillas ayudan a prevenir la transmisión del
-                                                    virus si
-                                                    las llevan las personas que están enfermas.&nbsp;</p>
-                                                <p class="text-padding">Los profesionales sanitarios indicarán el uso de
-                                                    mascarillas en aquellas situaciones en las que se considere
-                                                    necesario en
-                                                    cada caso.&nbsp;</p>
-                                                <p class="text-padding">Un uso inadecuado de mascarillas puede
-                                                    contribuir a un
-                                                    desabastecimiento de las mismas en aquellas situaciones para las que
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Existe un tratamiento para el COVID-19?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Existe un tratamiento para el COVID-19?</strong></p>
+
+                                            </div>
+
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground text-justify">
+                                                <p class="article-text">No existe un tratamiento específico, pero se
                                                     están
-                                                    indicadas.&nbsp;</p>
-                                            </div>
-                                            <div class="col-md-4 blue-text">
-                                                <img src="assets/images/mask.png" class="img-fluid">
-                                            </div>
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                            <accordion-group heading="¿Qué tengo que hacer si tengo síntomas?">
-                                <section id="block-system-main" class="block block-system clearfix">
-                                    <article id="node-78623" class="node node-noticia clearfix"
-                                        about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
-                                        typeof="sioc:Item foaf:Document">
-                                        <div
-                                            class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
-                                            <p><strong>¿Qué tengo que hacer si tengo síntomas?</strong></p>
-                                        </div>
+                                                    empleando
+                                                    algunos antivirales que han demostrado cierta eficacia en estudios
+                                                    recientes. Sí
+                                                    existen muchos tratamientos para el control de sus síntomas por lo
+                                                    que
+                                                    la
+                                                    asistencia sanitaria mejora el pronóstico.&nbsp;</p>
+                                                <p class="article-text">Al ser una infección producida por virus, los
+                                                    antibióticos
+                                                    no deben ser usados como un medio de prevención o tratamiento.</p>
 
-                                        <div
-                                            class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground article-text ">
-                                            <p class="text-padding">Las personas que presenten alguno de los siguientes
-                                                síntomas respiratorios (fiebre, tos y sensación de falta de aire) y
-                                                vivan o
-                                                hayan estado en los 14 días previos en una zona de transmisión
-                                                comunitaria,
-                                                o hayan tenido contacto estrecho en los 14 días previos con una persona
-                                                que
-                                                sea un caso probable o confirmado, deberán seguir los siguientes
-                                                lineamientos:&nbsp;</p>
-                                            <h4><strong>1.- Notificar a tu jefe inmediato y a recursos humanos:</strong>
-                                            </h4>
-                                            <ul>
-                                                <li class="">Jorge Delgado (<a
-                                                        href="mailto:jmdelgadom@indracompany.com">jmdelgadom@indracompany.com</a>).&nbsp;
-                                                </li>
-                                                <li class="">Mireya Ramírez (<a
-                                                        href="mailto:mrangelz@indracompany.com">mrangelz@indracompany.com</a>).&nbsp;
-                                                </li>
-                                                <li class="">Dra. Alba Velázquez
-                                                    (<a
-                                                        href="mailto:arvelazquez@eservicios.indracompany.com">arvelazquez@eservicios.indracompany.com</a>).
-                                                </li>
-                                            </ul>
-                                            <h4><strong>2.- Acudir a tu unidad de medicina familiar correspondiente.
-                                                    *No acudir al área de urgencias.</strong></h4>
-                                            <ul>
-                                                <li class="">Los servicios de salud valorarán su estado de salud y el
-                                                    antecedente de viaje y el posible contacto con casos de
-                                                    coronavirus.&nbsp;
-                                                </li>
-                                            </ul>
-                                            <p>&nbsp;&nbsp; &nbsp;<br>
-                                                &nbsp;</p>
-                                        </div>
-                                    </article>
-                                </section>
-                            </accordion-group>
-                        </accordion>
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Qué puedo hacer para protegerme?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Qué puedo hacer para protegerme?</strong></p>
+
+                                            </div>
+
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden row">
+                                                <p>Las medidas genéricas de protección individual frente a enfermedades
+                                                    respiratorias incluyen:</p>
+                                                <div class="col-md-3 blue-text">
+                                                    <div class="text-center">
+                                                        <img id="img-indra" src="assets/images/med_icon.png"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <strong>Higiene</strong>
+                                                    </div>
+                                                    <p>
+                                                        Higiene de manos frecuente (lavado con agua y jabón o soluciones
+                                                        alcohólicas), especialmente después de contacto directo con
+                                                        personas
+                                                        enfermas o su entorno.
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3 blue-text">
+                                                    <div class="text-center">
+                                                        <img id="img-indra" src="assets/images/key_icon.png"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <strong>Medidas</strong>
+                                                    </div>
+                                                    <p>
+                                                        Al toser o estornudar, cubrirse la boca y la nariz con el codo
+                                                        flexionado.
+                                                        Usar pañuelos desechables, y tirarlos tras su uso.
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3 blue-text">
+                                                    <div class="text-center">
+                                                        <img id="img-indra" src="assets/images/person_icon.png"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <strong>Síntomas</strong>
+                                                    </div>
+                                                    <p>
+                                                        Si se presentan síntomas respiratorios, evitar el contacto
+                                                        cercano
+                                                        (manteniendo una distancia de un metro aproximadamente) con
+                                                        otras
+                                                        personas.
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-3 blue-text">
+                                                    <div class="text-center">
+                                                        <img id="img-indra" src="assets/images/greting_icon.png"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <strong>Evita</strong>
+                                                    </div>
+                                                    <p>
+                                                        Evitar tocarse los ojos, la nariz y la boca, ya que las manos
+                                                        facilitan la
+                                                        transmisión.
+                                                    </p>
+                                                </div>
+
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Debo utilizar mascarillas para protegerme?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Debo utilizar mascarillas para protegerme?</strong></p>
+                                            </div>
+
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden row">
+                                                <div class="col-md-8 blue-text">
+                                                    <p class="text-padding">La población general sana no necesita
+                                                        utilizar
+                                                        mascarillas. Las mascarillas ayudan a prevenir la transmisión
+                                                        del
+                                                        virus si
+                                                        las llevan las personas que están enfermas.&nbsp;</p>
+                                                    <p class="text-padding">Los profesionales sanitarios indicarán el
+                                                        uso de
+                                                        mascarillas en aquellas situaciones en las que se considere
+                                                        necesario en
+                                                        cada caso.&nbsp;</p>
+                                                    <p class="text-padding">Un uso inadecuado de mascarillas puede
+                                                        contribuir a un
+                                                        desabastecimiento de las mismas en aquellas situaciones para las
+                                                        que
+                                                        están
+                                                        indicadas.&nbsp;</p>
+                                                </div>
+                                                <div class="col-md-4 blue-text">
+                                                    <img src="assets/images/mask.png" class="img-fluid">
+                                                </div>
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                                <accordion-group heading="¿Qué tengo que hacer si tengo síntomas?">
+                                    <section id="block-system-main" class="block block-system clearfix">
+                                        <article id="node-78623" class="node node-noticia clearfix"
+                                            about="/es/noticia/indra-minsait-digitalizan-carnet-conducir-app-mejora-seguridad-vial-facilitar-avisos"
+                                            typeof="sioc:Item foaf:Document">
+                                            <div
+                                                class="field field-name-field-entradilla field-type-text-long field-label-hidden text-center">
+                                                <p><strong>¿Qué tengo que hacer si tengo síntomas?</strong></p>
+                                            </div>
+
+                                            <div
+                                                class="field field-name-body field-type-text-with-summary field-label-hidden indra-ground article-text ">
+                                                <p class="text-padding">Las personas que presenten alguno de los
+                                                    siguientes
+                                                    síntomas respiratorios (fiebre, tos y sensación de falta de aire) y
+                                                    vivan o
+                                                    hayan estado en los 14 días previos en una zona de transmisión
+                                                    comunitaria,
+                                                    o hayan tenido contacto estrecho en los 14 días previos con una
+                                                    persona
+                                                    que
+                                                    sea un caso probable o confirmado, deberán seguir los siguientes
+                                                    lineamientos:&nbsp;</p>
+                                                <h4><strong>1.- Notificar a tu jefe inmediato y a recursos
+                                                        humanos:</strong>
+                                                </h4>
+                                                <ul>
+                                                    <li class="">Jorge Delgado (<a
+                                                            href="mailto:jmdelgadom@indracompany.com">jmdelgadom@indracompany.com</a>).&nbsp;
+                                                    </li>
+                                                    <li class="">Mireya Ramírez (<a
+                                                            href="mailto:mrangelz@indracompany.com">mrangelz@indracompany.com</a>).&nbsp;
+                                                    </li>
+                                                    <li class="">Dra. Alba Velázquez
+                                                        (<a
+                                                            href="mailto:arvelazquez@eservicios.indracompany.com">arvelazquez@eservicios.indracompany.com</a>).
+                                                    </li>
+                                                </ul>
+                                                <h4><strong>2.- Acudir a tu unidad de medicina familiar correspondiente.
+                                                        *No acudir al área de urgencias.</strong></h4>
+                                                <ul>
+                                                    <li class="">Los servicios de salud valorarán su estado de salud y
+                                                        el
+                                                        antecedente de viaje y el posible contacto con casos de
+                                                        coronavirus.&nbsp;
+                                                    </li>
+                                                </ul>
+                                                <p>&nbsp;&nbsp; &nbsp;<br>
+                                                    &nbsp;</p>
+                                            </div>
+                                        </article>
+                                    </section>
+                                </accordion-group>
+                            </accordion>
+                        </div>
+                        <div *ngIf="options[2]">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.arcgis.com/apps/opsdashboard/index.html?fbclid=IwAR2t2pzIVHJKcnQnT7-8XalZDDcmqyIGC3EIBK9fg7D1I1MxoJQ59dh0u8s#/bda7594740fd40299423467b48e9ecf6" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
         </div>
-
+        <app-footer></app-footer>
     </div>
 </div>
