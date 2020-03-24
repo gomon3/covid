@@ -1,24 +1,20 @@
-<header class="header s4-notdlg">
-    <div class="container noindex">
-        <div class="row noindex">
-            <!-- Titulo Indraweb -->
-            <div class="col-md-4 col-xl-2 header__col-left noindex">
-                <a href="/">
-                    <h1 class="header__title">
-                        <span class="sr-only">indraweb</span>
-                        <img src="assets/images/indra.svg" alt=""
-                            class="header__title__indra">
-                    </h1>
-                </a>
-            </div>
-            <div class="col-md-4 col-xl-5 header__col-search noindex">
-                <!-- Caja campañas -->
-
-                <!-- Caja buscador -->
-            </div>
-            <div class="col-md-4 col-xl-5 ml-auto header__col-right noindex">
-                <!-- Tools y Salir -->
-            </div>
-        </div>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top header">
+    <img src="assets/images/indra.svg" alt="" class="header__title__indra">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+        (click)="isCollapsed = !isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarCollapse" class="collapse navbar-collapse menu" [collapse]="isCollapsed" [isAnimated]="true">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="javascript:void(0)" title=""
+                    (click)="outstandingNews()">Noticias destacadas</a></li>
+            <li class="nav-item active"><a class="nav-link" href="javascript:void(0)" title="" (click)="covid()">El
+                    coronavirus</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript:void(0)" title="" (click)="statistics()">Estadísticas</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="javascript:void(0)" (click)="otherActions()">Otras acciones</a>
+            </li>
+        </ul>
     </div>
-</header>
+</nav>
